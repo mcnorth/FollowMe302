@@ -17,13 +17,13 @@
             <img src="images/front-logo.png" class="img-responsive center" id="front-logo" />
             <br />
             <div class="form-group">
-                <button type="button" class="btn btn-primary btn-lg btn-block fBtn">login</button>
+                <button type="button" id="btnLogin" class="btn btn-primary btn-lg btn-block fBtn">Login</button>
                 <%--<label for="email">Email address:</label>
                 <input type="email" class="form-control" id="email"/>--%>
 
             </div>
             <div class="form-group">
-                <button type="button" class="btn btn-primary btn-lg btn-block fBtn">register</button>
+                <button type="button" id="btnSignup" class="btn btn-primary btn-lg btn-block fBtn">Register</button>
                 <%--<label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="pwd"/>--%>
 
