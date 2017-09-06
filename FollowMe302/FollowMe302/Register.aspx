@@ -24,10 +24,21 @@
                 <input type="password" class="form-control" id="pwdSignUp"/>
 
             </div>
-            <%--<div class="checkbox">
-                <label><input type="checkbox"/> Remember me</label>
 
-            </div>--%>
+            
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div id="pu" class="radio">
+                        <label><input type="radio" name="optradio">Personal Use</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div id="bu" class="radio">
+                        <label><input type="radio" name="optradio">Business Use</label>
+                    </div>
+                </div>
+            </div>
             <button type="button" id="btnSignupPage" class="btn btn-primary btn-lg btn-block fBtn">Submit</button>
 
         </form>
