@@ -19,7 +19,7 @@
                <hr />
                <a href="ClientDashboard.aspx" role="button" id="btnDashboard" class="btn btn-lg btn-block active fBtn">Dashboard</a>
                <br />
-               <a href="#" role="button" id="btnEditProfile" class="btn btn-lg btn-block fBtn">Edit Profile</a>              
+               <a href="EditProfile.aspx" role="button" id="btnEditProfile" class="btn btn-lg btn-block fBtn">Edit Profile</a>              
                <br />
                <a href="#" role="button" id="btnViewProfile" class="btn btn-lg btn-block fBtn">View Profile</a>  
                <br />

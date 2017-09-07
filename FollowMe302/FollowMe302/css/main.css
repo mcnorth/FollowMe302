@@ -81,12 +81,19 @@ body {
 .panel-default > .panel-heading {
     background-color: #2c2c2c !important;
     color: white !important;
-    font-family: roboto-bold;
-    font-size: 16px;
     
-    
+   
 }
 
+#pHeading {
+    font-family: roboto-bold;
+    font-size: 16px;
+}
+
+#pSubHeading {
+    font-family: roboto-medium;
+    font-size: 12px;
+}
 
 #lblSession {
     color: white;

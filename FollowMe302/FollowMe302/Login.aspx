@@ -15,18 +15,13 @@
             <img src="images/login.png" class="img-responsive center" id="front-logo" />
             <br />
             <div class="form-group">
-                <label for="userName">username:</label>
-                <input type="text" class="form-control" id="userNameLogin">
-                
-                
-
+                <asp:TextBox ID="userNameLogin" runat="server" placeholder="userName" CssClass="form-control"></asp:TextBox>                
             </div>
+
             <div class="form-group">
-                
-                <label for="pwd">password:</label>
-                <input type="password" class="form-control" id="pwdLogin"/>
-
+                <asp:TextBox ID="pwdLogin" runat="server" placeholder="password" CssClass="form-control"></asp:TextBox>                  
             </div>
+
             <div class="form-group">
                 <div class="col-sm-6">
                     <div id="pu" class="radio">
