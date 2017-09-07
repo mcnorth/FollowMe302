@@ -10,12 +10,11 @@
 
 @font-face {
     font-family: 'roboto-medium';
-    src: url(../fonts/ROBOTO-MEDIUM.TTF) format('truetype');
+    src: url(../fonts/ROBOTO-REGULAR.TTF) format('truetype');
 }
 
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    
     background-color: #8cc63e;
 }
 
@@ -40,8 +39,65 @@ body {
 .fBtn {
     background-color: #404041 !important;
     font-family: roboto-bold !important;
+    border-color: #2c2c2c !important;
+    color: white;
 }
 
-    .fBtn:hover {
-        background-color: #4f4f4f !important;
-    }
+.fBtn:hover {
+   background-color: #8cc63e !important;
+   color: white !important;
+
+}
+
+.active {
+   background-color: #8cc63e !important;
+}
+
+.fBtn:focus {
+  background-color: #8cc63e !important;
+}
+
+#top-header 
+{
+    height: 50px;
+}
+
+#sideNav {
+    background-color: #2c2c2c;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 25px;
+    height: 100vh;
+}
+
+#top-header 
+{
+    padding: 20px;
+}
+
+.panel-default {
+    max-width: 700px;
+}
+
+.panel-default > .panel-heading {
+    background-color: #2c2c2c !important;
+    color: white !important;
+    font-family: roboto-bold;
+    font-size: 16px;
+    
+    
+}
+
+
+#lblSession {
+    color: white;
+    font-family: roboto-medium;
+    font-size: 20px;
+}
+
+#mainContent {
+}
+
+#front-logo-white {
+    display: block;
+    margin: auto;
+}

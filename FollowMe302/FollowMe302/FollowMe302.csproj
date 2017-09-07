@@ -78,6 +78,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientDashboard.aspx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\main.css" />
     <Content Include="Default.aspx" />
@@ -93,6 +94,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientDashboard.aspx.cs">
+      <DependentUpon>ClientDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientDashboard.aspx.designer.cs">
+      <DependentUpon>ClientDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
