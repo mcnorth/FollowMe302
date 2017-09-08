@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BusDashboard.aspx" />
+    <Content Include="GetClientDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="fonts\ROBOTO-BOLD.TTF" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="EditProfile.aspx.designer.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetClientDetails.aspx.cs">
+      <DependentUpon>GetClientDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetClientDetails.aspx.designer.cs">
+      <DependentUpon>GetClientDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
