@@ -19,9 +19,9 @@
                <hr />
                <a href="BusDashboard.aspx" role="button" id="btnBusDashboard" class="btn btn-lg btn-block active fBtn">Dashboard</a>
                <br />
-               <a href="#" role="button" id="btnGetClientProfile" class="btn btn-lg btn-block fBtn">Get Client Profile</a>              
+               <a href="GetClientDetails.aspx" role="button" id="btnGetClientProfile" class="btn btn-lg btn-block fBtn">Get Client Profile</a>              
                <br />
-               <a href="#" role="button" id="btnSendClientNotif" class="btn btn-lg btn-block fBtn">Send Client Notification</a>  
+               <a href="SendClientNotification.aspx" role="button" id="btnSendClientNotif" class="btn btn-lg btn-block fBtn">Send Client Notification</a>  
                <br />
                <a href="#" role="button" id="btnEditCompanyDetails" class="btn btn-lg btn-block fBtn">Edit Company Details</a> 
                <br />
