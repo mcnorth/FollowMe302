@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BusDashboard.aspx" />
     <Content Include="packages.config" />
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="fonts\ROBOTO-BOLD.TTF" />
@@ -97,6 +98,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusDashboard.aspx.cs">
+      <DependentUpon>BusDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusDashboard.aspx.designer.cs">
+      <DependentUpon>BusDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientDashboard.aspx.cs">
       <DependentUpon>ClientDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
