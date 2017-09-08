@@ -49,6 +49,22 @@ body {
 
 }
 
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-menu > li > a {
+   color: white;
+
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: red;
+    background-image: none;
+}
+
+
+
 .active {
    background-color: #8cc63e !important;
 }

@@ -23,9 +23,9 @@
                <br />
                <a href="ViewProfile.aspx" role="button" id="btnViewProfile" class="btn btn-lg btn-block fBtn">View Profile</a>  
                <br />
-               <a href="#" role="button" id="btnSendProfile" class="btn btn-lg btn-block fBtn">Send Profile</a> 
+               <a href="SendProfile.aspx" role="button" id="btnSendProfile" class="btn btn-lg btn-block fBtn">Send Profile</a> 
                <br />
-               <a href="#" role="button" id="btnLogout" class="btn btn-lg btn-block fBtn">Log Out</a> 
+               <a href="Login.aspx" role="button" id="btnLogout" class="btn btn-lg btn-block fBtn">Log Out</a> 
            </div>
            <div id="mainContent" class="col-sm-10">
                <div id="top-header">

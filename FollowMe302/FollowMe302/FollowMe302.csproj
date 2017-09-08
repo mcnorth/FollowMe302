@@ -92,6 +92,7 @@
     <Content Include="scripts\javaScript.js" />
     <Content Include="scripts\jquery-3.2.1.min.js" />
     <Content Include="scripts\npm.js" />
+    <Content Include="SendProfile.aspx" />
     <Content Include="ViewProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -131,6 +132,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendProfile.aspx.cs">
+      <DependentUpon>SendProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendProfile.aspx.designer.cs">
+      <DependentUpon>SendProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewProfile.aspx.cs">
       <DependentUpon>ViewProfile.aspx</DependentUpon>
