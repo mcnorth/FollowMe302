@@ -21,7 +21,7 @@
                <br />
                <a href="EditProfile.aspx" role="button" id="btnEditProfile" class="btn btn-lg btn-block fBtn">Edit Profile</a>              
                <br />
-               <a href="#" role="button" id="btnViewProfile" class="btn btn-lg btn-block fBtn">View Profile</a>  
+               <a href="ViewProfile.aspx" role="button" id="btnViewProfile" class="btn btn-lg btn-block fBtn">View Profile</a>  
                <br />
                <a href="#" role="button" id="btnSendProfile" class="btn btn-lg btn-block fBtn">Send Profile</a> 
                <br />

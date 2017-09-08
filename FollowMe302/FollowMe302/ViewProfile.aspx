@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditProfile.aspx.cs" Inherits="FollowMe302.EditProfile" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewProfile.aspx.cs" Inherits="FollowMe302.ViewProfile" %>
 
 <!DOCTYPE html>
 
@@ -19,9 +19,9 @@
                <hr />
                <a href="ClientDashboard.aspx" role="button" id="btnDashboard" class="btn btn-lg btn-block fBtn">Dashboard</a>
                <br />
-               <a href="EditProfile.aspx" role="button" id="btnEditProfile" class="btn btn-lg btn-block active fBtn">Edit Profile</a>              
+               <a href="EditProfile.aspx" role="button" id="btnEditProfile" class="btn btn-lg btn-block  fBtn">Edit Profile</a>              
                <br />
-               <a href="ViewProfile.aspx" role="button" id="btnViewProfile" class="btn btn-lg btn-block fBtn">View Profile</a>  
+               <a href="ViewProfile.aspx" role="button" id="btnViewProfile" class="btn btn-lg btn-block active fBtn">View Profile</a>  
                <br />
                <a href="#" role="button" id="btnSendProfile" class="btn btn-lg btn-block fBtn">Send Profile</a> 
                <br />
@@ -34,8 +34,8 @@
                <hr />
                <div class="panel panel-default">
                    <div class="panel-heading">
-                       <p id="pHeading">Edit Profile</p>
-                       <p id="pSubHeading">Complete your profile</p>
+                       <p id="pHeading">View Profile</p>
+                       <p id="pSubHeading">View your completed profile</p>
                    </div>
 
                    <div class="panel-body">
@@ -43,13 +43,13 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditFirstName" runat="server" placeholder="First Name" CssClass="form-control"></asp:TextBox>                                   
+                                       <asp:TextBox ID="txtViewFirstName" runat="server" placeholder="First Name" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox> 
+                                       <asp:TextBox ID="txtViewLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -57,13 +57,13 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditUsername" runat="server" placeholder="Username" CssClass="form-control"></asp:TextBox>                                   
+                                       <asp:TextBox ID="txtViewUsername" runat="server" placeholder="Username" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox> 
+                                       <asp:TextBox ID="txtViewEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -71,19 +71,19 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditHouseNo" runat="server" placeholder="House Number" CssClass="form-control"></asp:TextBox>                                   
+                                       <asp:TextBox ID="txtViewHouseNo" runat="server" placeholder="House Number" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditStreet" runat="server" placeholder="Street Name" CssClass="form-control"></asp:TextBox> 
+                                       <asp:TextBox ID="txtViewStreet" runat="server" placeholder="Street Name" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditSuburb" runat="server" placeholder="Suburb" CssClass="form-control"></asp:TextBox> 
+                                       <asp:TextBox ID="txtViewSuburb" runat="server" placeholder="Suburb" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -91,32 +91,23 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditState" runat="server" placeholder="State" CssClass="form-control"></asp:TextBox>                                   
+                                       <asp:TextBox ID="txtViewState" runat="server" placeholder="State" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditCountry" runat="server" placeholder="Country" CssClass="form-control"></asp:TextBox> 
+                                       <asp:TextBox ID="txtViewCountry" runat="server" placeholder="Country" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditPostcode" runat="server" placeholder="Postcode" CssClass="form-control"></asp:TextBox> 
+                                       <asp:TextBox ID="txtViewPostcode" runat="server" placeholder="Postcode" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
-                           </div>
-                           <div class="row">
-                               <div class="col-md-12">
-                                   <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn pull-right fBtn" />
-                               </div>                               
-                           </div>
-                       </form>
-                       
-                       <div class="clearfix">
-                           <asp:Label ID="lblEditStatus" runat="server" Text=" ">No updates</asp:Label>
-                       </div>                       
+                           </div>                          
+                       </form>                                                                    
                    </div>
                </div>
               </div>     
