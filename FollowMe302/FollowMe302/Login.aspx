@@ -36,7 +36,8 @@
                 </div>
             </div>
 
-            <button type="button" id="btnLoginPage" class="btn btn-primary btn-lg btn-block fBtn">login</button>
+            <asp:Button ID="btnLoginPage" runat="server" CssClass="btn btn-primary btn-lg btn-block fBtn" Text="Login" OnClick="btnLoginPage_Click" />
+           <asp:Label ID="lblLogStatus" runat="server"></asp:Label>
 
         </form>
 

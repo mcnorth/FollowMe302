@@ -13,5 +13,10 @@ namespace FollowMe302
         {
 
         }
+
+        protected void btnRegisterPage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

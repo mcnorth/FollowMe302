@@ -11,21 +11,17 @@
 </head>
 <body style="background-color:#8cc63e">
     <div class="container">
-        <form id="form1" runat="server">
+       <form id="form1" runat="server">
             <img src="images/signUp.png" class="img-responsive center" id="front-logo" />
             <br />
             <div class="form-group">
-                <label for="userName">username:</label>
-                <input type="text" class="form-control" id="userNameSignUp">
-
+                <asp:TextBox ID="userNameRegister" runat="server" placeholder="userName" CssClass="form-control"></asp:TextBox>                
             </div>
+
             <div class="form-group">
-                <label for="pwd">password:</label>
-                <input type="password" class="form-control" id="pwdSignUp"/>
-
+                <asp:TextBox ID="pwdRegister" runat="server" placeholder="password" CssClass="form-control"></asp:TextBox>                  
             </div>
 
-            
             <div class="form-group">
                 <div class="col-sm-6">
                     <div id="pu" class="radio">
@@ -39,7 +35,9 @@
                     </div>
                 </div>
             </div>
-            <button type="button" id="btnSignupPage" class="btn btn-primary btn-lg btn-block fBtn">Submit</button>
+           <asp:Button ID="btnRegisterPage" runat="server" CssClass="btn btn-primary btn-lg btn-block fBtn" Text="Register" OnClick="btnRegisterPage_Click" />
+           <asp:Label ID="lblRegStatus" runat="server"></asp:Label>
+            
 
         </form>
 
