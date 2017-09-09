@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BusDashboard.aspx" />
+    <Content Include="EditCompanyDetails.aspx" />
     <Content Include="GetClientDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="css\bootstrap.min.css.map" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditCompanyDetails.aspx.cs">
+      <DependentUpon>EditCompanyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditCompanyDetails.aspx.designer.cs">
+      <DependentUpon>EditCompanyDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditProfile.aspx.cs">
       <DependentUpon>EditProfile.aspx</DependentUpon>
