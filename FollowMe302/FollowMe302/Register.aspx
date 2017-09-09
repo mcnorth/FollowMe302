@@ -25,13 +25,13 @@
             <div class="form-group">
                 <div class="col-sm-6">
                     <div id="pu" class="radio">
-                        <label><input type="radio" name="optradio">Personal Use</label>
+                        <label><input type="radio" value="1" name="optradio">Personal Use</label>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div id="bu" class="radio">
-                        <label><input type="radio" name="optradio">Business Use</label>
+                        <label><input type="radio" value="2" name="optradio">Business Use</label>
                     </div>
                 </div>
             </div>

@@ -22,22 +22,40 @@ namespace FollowMe302 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// userNameLogin control.
+        /// txtuserNameLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userNameLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtuserNameLogin;
         
         /// <summary>
-        /// pwdLogin control.
+        /// txtpwdLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pwdLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtpwdLogin;
+        
+        /// <summary>
+        /// rdPersonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdPersonal;
+        
+        /// <summary>
+        /// rdBusiness control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdBusiness;
         
         /// <summary>
         /// btnLoginPage control.

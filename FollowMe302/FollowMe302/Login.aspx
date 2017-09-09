@@ -15,23 +15,25 @@
             <img src="images/login.png" class="img-responsive center" id="front-logo" />
             <br />
             <div class="form-group">
-                <asp:TextBox ID="userNameLogin" runat="server" placeholder="userName" CssClass="form-control"></asp:TextBox>                
+                <asp:TextBox ID="txtuserNameLogin" runat="server" placeholder="userName" CssClass="form-control"></asp:TextBox>                
             </div>
 
             <div class="form-group">
-                <asp:TextBox ID="pwdLogin" runat="server" placeholder="password" CssClass="form-control"></asp:TextBox>                  
+                <asp:TextBox ID="txtpwdLogin" runat="server" placeholder="password" CssClass="form-control"></asp:TextBox>                  
             </div>
 
             <div class="form-group">
                 <div class="col-sm-6">
                     <div id="pu" class="radio">
-                        <label><input type="radio" name="optradio">Personal Use</label>
+                        <asp:RadioButton ID="rdPersonal" GroupName="userType" runat="server" Text="Personal Use" />
+                        
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div id="bu" class="radio">
-                        <label><input type="radio" name="optradio">Business Use</label>
+                        <asp:RadioButton ID="rdBusiness" GroupName="userType" runat="server" Text="Business Use" />
+                        
                     </div>
                 </div>
             </div>
