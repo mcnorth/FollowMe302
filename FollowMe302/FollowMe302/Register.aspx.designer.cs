@@ -22,22 +22,40 @@ namespace FollowMe302 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// userNameRegister control.
+        /// txtuserNameRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userNameRegister;
+        protected global::System.Web.UI.WebControls.TextBox txtuserNameRegister;
         
         /// <summary>
-        /// pwdRegister control.
+        /// txtpwdRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pwdRegister;
+        protected global::System.Web.UI.WebControls.TextBox txtpwdRegister;
+        
+        /// <summary>
+        /// rdRegPersonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdRegPersonal;
+        
+        /// <summary>
+        /// rdRegBusiness control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdRegBusiness;
         
         /// <summary>
         /// btnRegisterPage control.
@@ -56,5 +74,14 @@ namespace FollowMe302 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRegStatus;
+        
+        /// <summary>
+        /// PleaseLog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal PleaseLog;
     }
 }

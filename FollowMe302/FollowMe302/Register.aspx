@@ -15,28 +15,29 @@
             <img src="images/signUp.png" class="img-responsive center" id="front-logo" />
             <br />
             <div class="form-group">
-                <asp:TextBox ID="userNameRegister" runat="server" placeholder="userName" CssClass="form-control"></asp:TextBox>                
+                <asp:TextBox ID="txtuserNameRegister" runat="server" placeholder="userName" CssClass="form-control"></asp:TextBox>                
             </div>
 
             <div class="form-group">
-                <asp:TextBox ID="pwdRegister" runat="server" placeholder="password" CssClass="form-control"></asp:TextBox>                  
+                <asp:TextBox ID="txtpwdRegister" runat="server" placeholder="password" CssClass="form-control"></asp:TextBox>                  
             </div>
 
             <div class="form-group">
                 <div class="col-sm-6">
                     <div id="pu" class="radio">
-                        <label><input type="radio" value="1" name="optradio">Personal Use</label>
+                        <asp:RadioButton ID="rdRegPersonal" GroupName="userType" runat="server" Text="Personal Use" />
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div id="bu" class="radio">
-                        <label><input type="radio" value="2" name="optradio">Business Use</label>
+                        <asp:RadioButton ID="rdRegBusiness" GroupName="userType" runat="server" Text="Business Use" />
                     </div>
                 </div>
             </div>
            <asp:Button ID="btnRegisterPage" runat="server" CssClass="btn btn-primary btn-lg btn-block fBtn" Text="Register" OnClick="btnRegisterPage_Click" />
            <asp:Label ID="lblRegStatus" runat="server"></asp:Label>
+           <asp:Literal ID="PleaseLog" runat="server"></asp:Literal> 
             
 
         </form>
