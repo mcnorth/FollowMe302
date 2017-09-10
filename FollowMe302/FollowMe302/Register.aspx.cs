@@ -42,7 +42,18 @@ namespace FollowMe302
 
                 if (nUserName != null)
                 {
-                    lblRegStatus.Text = "UserName already exists, please choose another";
+                    //lblRegStatus.Text = "UserName already exists, please choose another";
+                    lblModalTitle.Text = "ERROR!";
+                    lblModalBody.Text = "User Name already exists, please choose another";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
+                }
+                if (txtuserNameRegister.Text == "" || txtpwdRegister.Text == "") 
+                {
+                    lblModalTitle.Text = "ERROR!";
+                    lblModalBody.Text = "User name / Password cannot be empty.";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
                 }
                 else
                 {
@@ -81,7 +92,18 @@ namespace FollowMe302
 
                 if (nUserName != null)
                 {
-                    lblRegStatus.Text = "Company Name already exists, please choose another";
+                    //lblRegStatus.Text = "Company Name already exists, please choose another";
+                    lblModalTitle.Text = "ERROR!";
+                    lblModalBody.Text = "Company Name already exists, please choose another";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
+                }
+                if (txtuserNameRegister.Text == "" || txtpwdRegister.Text == "")
+                {
+                    lblModalTitle.Text = "ERROR!";
+                    lblModalBody.Text = "Company name / Password cannot be empty.";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
                 }
                 else
                 {
@@ -105,7 +127,11 @@ namespace FollowMe302
 
             if(rdRegPersonal.Checked == false && rdRegBusiness.Checked == false)
             {
-                lblRegStatus.Text = "Please check a user type.";
+                //lblRegStatus.Text = "Please check a user type.";
+                lblModalTitle.Text = "ERROR!";
+                lblModalBody.Text = "Please check a user type.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
             }
         }
     }

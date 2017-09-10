@@ -21,7 +21,7 @@ body {
 .container {
 }
 
-#form1 {
+#bg {
     border-radius: 20px;
     background-color: white;
     max-width: 350px;
@@ -34,6 +34,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+#form1 {
+    
 }
 
 .fBtn {

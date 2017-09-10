@@ -25,6 +25,8 @@ namespace FollowMe302
             member.Password = txtpwdLogin.Text;
             string followID = "";
 
+            
+
             if (rdPersonal.Checked == true)
             {
                 SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
@@ -58,7 +60,11 @@ namespace FollowMe302
                 }
                 else
                 {
-                    lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
+                    //lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
+                    lblModalTitle.Text = "ERROR!";
+                    lblModalBody.Text = "Details incorrect or user does not exist. Try again";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
                 }
 
                 con.Close();
@@ -96,7 +102,11 @@ namespace FollowMe302
                 }
                 else
                 {
-                    lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
+                    //lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
+                    lblModalTitle.Text = "ERROR!";
+                    lblModalBody.Text = "Details incorrect or user does not exist. Try again";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
                 }
 
                 con.Close();
@@ -104,8 +114,15 @@ namespace FollowMe302
 
             if (rdPersonal.Checked == false && rdBusiness.Checked == false)
             {
-                lblLogStatus.Text = "Please check a user type.";
+                //lblLogStatus.Text = "Please check a user type.";
+                lblModalTitle.Text = "ERROR!";
+                lblModalBody.Text = "Please check a user type.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
+
             }
         }
+
+        
     }
 }

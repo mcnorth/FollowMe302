@@ -112,6 +112,7 @@
                                    <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn pull-right fBtn" OnClick="btnUpdateProfile_Click" />
                                </div>                               
                            </div>
+
                        </form>
                        
                        <div class="clearfix">
