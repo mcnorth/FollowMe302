@@ -35,8 +35,12 @@
                <div class="panel panel-default">
                    <div class="panel-heading">Dashboard</div>
                    <div class="panel-body">
-                       <asp:Label ID="lblNotStatus" runat="server" Text=" ">No notifications</asp:Label>
-
+                       <form id="editForm" runat="server">
+                       <asp:Panel ID="notifPanel" runat="server">
+                           <asp:Label ID="lblNotStatus" runat="server" Text=" "></asp:Label>
+                       </asp:Panel>
+                           </form>
+                       
                    </div>
 
                </div>

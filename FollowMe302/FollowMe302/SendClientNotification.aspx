@@ -44,20 +44,20 @@
                            <div class="row">
                                <div class="col-md-12">
                                    <div class="form-group">
-                                       <textarea class="form-control" rows="5" id="comment"></textarea>                                  
+                                       <asp:TextBox id="txtProComment" CssClass="form-control" TextMode="multiline" Columns="80" Rows="5" runat="server" />                                 
                                    </div>
                                </div>
                               </div> 
                            <div class="row">
                                <div class="col-md-12">
-                                   <asp:Button ID="btnSendMyProfile" runat="server" Text="Send Profile" CssClass="btn pull-right fBtn" />
+                                   <asp:Button ID="btnSendMyProfile" runat="server" Text="Send" CssClass="btn pull-right fBtn" OnClick="btnSendMyProfile_Click" />
                                </div>                               
                            </div>
                            
                        </form>
                        
                        <div class="clearfix">
-                           <asp:Label ID="lblSendStatus" runat="server" Text=" ">No updates</asp:Label>
+                           <asp:Label ID="lblSendStatus" runat="server" Text=" "></asp:Label>
                        </div>
                    </div>
                </div>
