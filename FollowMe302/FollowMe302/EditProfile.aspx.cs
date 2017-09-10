@@ -80,7 +80,11 @@ namespace FollowMe302
                 con.Open();
                 modify.ExecuteNonQuery();
                 con.Close();
-                lblEditStatus.Text = "Details succesfully updated.";
+                //lblEditStatus.Text = "Details succesfully updated.";
+                lblModalTitle.Text = "CONGRATULATIONS!";
+                lblModalBody.Text = "Details succesfully updated.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
             }
 
             //if user info doesnt exist adds the user input to database
@@ -106,7 +110,11 @@ namespace FollowMe302
 
 
 
-                lblEditStatus.Text = "Details succesfully updated.";
+                //lblEditStatus.Text = "Details succesfully updated.";
+                lblModalTitle.Text = "CONGRATULATIONS!";
+                lblModalBody.Text = "Details succesfully updated.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
 
             }
         }
