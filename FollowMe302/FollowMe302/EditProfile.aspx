@@ -109,13 +109,13 @@
                            </div>
                            <div class="row">
                                <div class="col-md-12">
-                                   <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn pull-right fBtn" />
+                                   <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" CssClass="btn pull-right fBtn" OnClick="btnUpdateProfile_Click" />
                                </div>                               
                            </div>
                        </form>
                        
                        <div class="clearfix">
-                           <asp:Label ID="lblEditStatus" runat="server" Text=" ">No updates</asp:Label>
+                           <asp:Label ID="lblEditStatus" runat="server" Text=" "></asp:Label>
                        </div>                       
                    </div>
                </div>

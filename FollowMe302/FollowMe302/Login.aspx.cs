@@ -82,6 +82,7 @@ namespace FollowMe302
                 while (rdr.Read())
                 {
                     dataCount++;
+                    followID = rdr["followMeId"].ToString();
                 }
 
                 //checks for user in the database
@@ -89,6 +90,7 @@ namespace FollowMe302
                 if (dataCount > 0)
                 {
                     Session["name"] = member.UserName;
+                    Session["fmID"] = followID;
                     Response.Redirect("~/BusDashboard.aspx");
                     Session.RemoveAll();
                 }
