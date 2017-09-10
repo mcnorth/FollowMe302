@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SendProfile.aspx.cs" Inherits="FollowMe302.SendProfile" %>
+<%@ Register Assembly="ASP.Web.UI.PopupControl" Namespace="ASP.Web.UI.PopupControl" TagPrefix="ASPP" %>
 
 <!DOCTYPE html>
 
@@ -46,14 +47,11 @@
                            <div class="row">
                                <div class="col-md-12">
                                    <asp:Label runat="server" ID="lblSelBus">Select a business to send your profile to.</asp:Label>
-                               <div class="dropdown">
-                                   <button class="btn  dropdown-toggle fBtn" type="button" data-toggle="dropdown">Dropdown Example<span class="caret"></span></button>
-                                   <ul class="dropdown-menu">
-                                       <li><a href="#">HTML</a></li>
-                                       <li><a href="#">CSS</a></li>
-                                       <li><a href="#">JavaScript</a></li>
-                                   </ul>
-                               </div>
+                                   <br />
+                                   <asp:DropDownList ID="ddlSendPro" runat="server" AppendDataBoundItems="false" CssClass="btn dropdown-toggle fBtn">
+                                       <asp:ListItem Text= " ">Choose...</asp:ListItem>
+                                   </asp:DropDownList>
+                               
                                </div>                              
                            </div>
                            <br />
@@ -126,13 +124,40 @@
                            </div>
                            <div class="row">
                                <div class="col-md-12">
-                                   <asp:Button ID="btnSendMyProfile" runat="server" Text="Send Profile" CssClass="btn pull-right fBtn" />
+                                   <asp:Button ID="btnSendMyProfile" runat="server" Text="Send Profile" CssClass="btn pull-right fBtn" OnClick="btnSendMyProfile_Click" />
                                </div>                               
+                           </div>
+
+                           
+
+                           <asp:ScriptManager ID="asm" runat="server" />
+                           <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                               <div class="modal-dialog">
+                                   <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                                       <ContentTemplate>
+                                           <div class="modal-content">
+                                               <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                   <h4 class="modal-title"><asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                                               </div>
+                                               <div class="modal-body">
+                                                   <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                                               </div>
+                                               <div class="modal-footer">
+                                                   <asp:Button ID="btnClose" runat="server" CssClass="btn btn-info fBtn" Text="Close" OnClick="btnClose_Click" />
+                                                   <%--<button id="btnColse" class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>--%>
+                                               </div>
+                                           </div>
+                                       </ContentTemplate>
+                                   </asp:UpdatePanel>
+                               </div>
                            </div>
                        </form>
                        
+
+
                        <div class="clearfix">
-                           <asp:Label ID="lblSendStatus" runat="server" Text=" ">No updates</asp:Label>
+                           <asp:Label ID="lblSendStatus" runat="server" Text=" "></asp:Label>
                        </div>                       
                    </div>
                </div>
