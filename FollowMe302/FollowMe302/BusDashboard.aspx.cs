@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FollowMe302.Csharp;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace FollowMe302
 {
@@ -60,6 +61,13 @@ namespace FollowMe302
                     btn.Attributes.Add("style", "margin:5px");
                     btn.Click += new EventHandler(btnView_Click);
                     notifPanel.Controls.Add(btn);
+                    Button btn3 = new Button();
+                    btn3.ID = "send" + clientId[i];
+                    btn3.Attributes.Add("class", "btn btn-primary btn-sm fBtn");
+                    btn3.Text = "Send Notification";
+                    btn3.Attributes.Add("style", "margin:5px");
+                    btn3.Click += new EventHandler(btnSend_Click);
+                    notifPanel.Controls.Add(btn3);
                     Button btn2 = new Button();
                     btn2.ID = followId;
                     btn2.Attributes.Add("class", "btn btn-primary btn-sm fBtn");
@@ -85,10 +93,26 @@ namespace FollowMe302
 
         private void btnView_Click(object sender, EventArgs e)
         {
+            
+            Session.Remove("viewid");
+            Button btn = (Button)sender;
+            string str = btn.ID;
+            string val = Regex.Replace(str, "[A-Za-z ]", "");
+            //int id = Convert.ToInt32(val);
+            Session["viewid"] = val;
             Response.Redirect("~/GetClientDetails.aspx");
-            //Button btn = (Button)sender;
-            //string btnID = btn.ID;
             //Response.Redirect("~/client.aspx?field1="+ btnID);
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            Session.Remove("sendid");
+            Button btn = (Button)sender;
+            string str = btn.ID;
+            string val = Regex.Replace(str, "[A-Za-z ]", "");
+            //int id = Convert.ToInt32(val);
+            Session["sendid"] = val;
+            Response.Redirect("~/SendClientNotification.aspx");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

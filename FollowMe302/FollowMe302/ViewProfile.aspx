@@ -123,8 +123,8 @@
                                                    <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
                                                </div>
                                                <div class="modal-footer">
-                                                   <asp:Button ID="btnClose" runat="server" CssClass="btn btn-info fBtn" Text="Close" OnClick="btnClose_Click" />
-                                                   <%--<button id="btnColse" class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>--%>
+                                                   <%--<asp:Button ID="btnClose" runat="server" CssClass="btn btn-info fBtn" Text="Close" OnClick="btnClose_Click" />--%>
+                                                   <button id="btnColse" class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
                                                </div>
                                            </div>
                                        </ContentTemplate>
