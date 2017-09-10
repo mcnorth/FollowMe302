@@ -79,7 +79,11 @@ namespace FollowMe302
                 txtViewFirstName.Text = "";
                 txtViewLastName.Text = "";
 
-                lblViewStatus.Text = "Details do not exist.";
+                //lblViewStatus.Text = "Details do not exist.";
+                lblModalTitle.Text = "ERROR!";
+                lblModalBody.Text = "Details do not exist.";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
             }
 
             con.Close();

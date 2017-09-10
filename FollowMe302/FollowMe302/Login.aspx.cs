@@ -88,7 +88,7 @@ namespace FollowMe302
                 while (rdr.Read())
                 {
                     dataCount++;
-                    followID = rdr["followMeId"].ToString();
+                    followID = rdr["companyId"].ToString();
                 }
 
                 //checks for user in the database
