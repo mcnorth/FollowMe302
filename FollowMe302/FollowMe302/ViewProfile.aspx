@@ -36,6 +36,7 @@
                    <div class="panel-heading">
                        <p id="pHeading">View Profile</p>
                        <p id="pSubHeading">View your completed profile</p>
+                       <asp:Label ID="lblViewStatus" runat="server" Text=""></asp:Label>
                    </div>
 
                    <div class="panel-body">
