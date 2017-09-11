@@ -10,6 +10,7 @@ using PostmarkDotNet;
 using PostmarkDotNet.Model;
 using System.IO;
 using System.Threading.Tasks;
+using PostmarkDotNet.Legacy;
 
 namespace FollowMe302
 {
@@ -74,54 +75,67 @@ namespace FollowMe302
                 string bus = Session["name"].ToString();
                 int id = Convert.ToInt32(Session["sendid"]);
 
-                Task<bool> res = SendEmailAsync();
-                res.Wait();
-                var b = res.Result;
+                bool res = SendEmail();
+                //res.Wait();
                 
-                if(b == true)
+                
+                if(res == true)
                 {
-                    lblEmailStatus.Text = "Your email has been sent";
+                    //creates connection and query
+                    SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
+
+                    //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|FollowMeDatabase.mdf; Integrated Security=True");
+
+                    SqlDataReader rdr = null;
+
+                    SqlCommand cmd = new SqlCommand("INSERT INTO [_NotificationsToClient] (companyName, followMeId) VALUES ('" + bus + "', '" + id + "')", con);
+
+                    // SqlCommand insertCmd = new SqlCommand("INSERT INTO _NotificationsToClient (followMeId, companyName)" +
+                    //"VALUES (@followMeId, @companyName)", con);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    //lblSendStatus.Text = "Your notification has been sent";
+                    lblModalTitle.Text = "CONGRATULATIONS!";
+                    lblModalBody.Text = "Your notification has been sent";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
                 }
                 else
                 {
-                    lblEmailStatus.Text = "Your email has NOT been sent";
+                    //lblSendStatus.Text = "No client to send notification to.";
+                    lblModalTitle.Text = "ERROR!";
+                    lblModalBody.Text = "No client to send notification to.";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    upModal.Update();
                 }
-                
-
-                //creates connection and query
-                SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
-
-                //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|FollowMeDatabase.mdf; Integrated Security=True");
-
-                SqlDataReader rdr = null;
-
-                SqlCommand cmd = new SqlCommand("INSERT INTO [_NotificationsToClient] (companyName, followMeId) VALUES ('" + bus + "', '" + id + "')", con);
-
-                // SqlCommand insertCmd = new SqlCommand("INSERT INTO _NotificationsToClient (followMeId, companyName)" +
-                //"VALUES (@followMeId, @companyName)", con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                lblSendStatus.Text = "Your notification has been sent";
             }
             else
             {
-                lblSendStatus.Text = "No client to send notification to.";
+                //lblEmailStatus.Text = "Your email has NOT been sent";
+                lblModalTitle.Text = "ERROR!";
+                lblModalBody.Text = "Email has not been sent";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                upModal.Update();
             }
+
+
+
+
         }
 
-        public async Task<bool> SendEmailAsync()
+        public bool SendEmail()
         {
             // Send an email asynchronously:
             var message = new PostmarkMessage()
             {
-                To = "kellie@kelliemcnaughton.com",
+                To = "followmesit302@gmail.com",
                 From = "kellie@kelliemcnaughton.com",
                 TrackOpens = true,
                 Subject = "A complex email",
                 TextBody = "Plain Text Body",
-                HtmlBody = "<html><body></body></html>",
+                HtmlBody = "<html><body><p>A new notification has arrived.</p></body></html>",
                 Tag = "New Year's Email Campaign",
                 Headers = new HeaderCollection
                     {
@@ -132,17 +146,17 @@ namespace FollowMe302
             //var imageContent = File.ReadAllBytes("test.jpg");
             //message.AddAttachment(imageContent, "test.jpg", "image/jpg", "cid:embed_name.jpg");
 
-            var client = new PostmarkClient("efc7197a-4c0d-4f4b-92f7-43c612ed74b1");
-            var sendResult = await client.SendMessageAsync(message);
+            PostmarkClient client = new PostmarkClient("efc7197a-4c0d-4f4b-92f7-43c612ed74b1");
+            PostmarkResponse response = client.SendMessage(message);
 
-            
-            if (sendResult.Status == PostmarkStatus.Success)
+
+            if (response.Status != PostmarkStatus.Success)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
     }
