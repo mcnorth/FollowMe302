@@ -22,6 +22,7 @@ namespace FollowMe302
 
         protected void btnUpdateProfile_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(Session["fmID"]);
             //adds user input from the text boxes to an object
             MemberEntity member = new MemberEntity();
             member.FirstName = txtEditFirstName.Text;
@@ -34,6 +35,7 @@ namespace FollowMe302
             member.State = txtEditState.Text;
             member.Country = txtEditCountry.Text;
             member.Postcode = txtEditPostcode.Text;
+            member.PhoneNumber = txtEditPhoneNumber.Text;
 
             //creates connection and queries
             SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
@@ -42,12 +44,14 @@ namespace FollowMe302
 
             SqlDataReader rdr = null;
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [userName] = '" + Session["name"] + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [followMeId] = '" + id + "'", con);
 
-            SqlCommand modify = new SqlCommand("UPDATE _UserDetails SET houseNumber=@houseNumber, streetName=@streetName, suburb=@suburb, stat=@stat, country=@country, postcode=@postcode,  firstName=@firstName, lastName=@lastName, email=@email", con);
+            SqlCommand modify = new SqlCommand("UPDATE _UserDetails SET houseNumber=@houseNumber, streetName=@streetName, suburb=@suburb, stat=@stat, country=@country, postcode=@postcode,  firstName=@firstName, lastName=@lastName, phoneNumber=@phoneNumber", con);
 
-            SqlCommand insert = new SqlCommand(" INSERT INTO _UserDetails (houseNumber, streetName, suburb, stat, country, postcode, email, userName, followMeId, firstName, lastName)" +
-                                    "VALUES (@houseNumber, @streetName, @suburb, @stat, @country, @postcode, @email, @userName, @followMeId, @firstName, @lastName)", con);
+            SqlCommand modifyUser = new SqlCommand("UPDATE _User SET email=@email WHERE followMeId = '" + id + "'", con);
+
+            SqlCommand insert = new SqlCommand(" INSERT INTO _UserDetails (houseNumber, streetName, suburb, stat, country, postcode, followMeId, firstName, lastName, phoneNumber)" +
+                                    "VALUES (@houseNumber, @streetName, @suburb, @stat, @country, @postcode, @followMeId, @firstName, @lastName, @phoneNumber)", con);
            
 
             //checks the database to see if user exists
@@ -72,11 +76,15 @@ namespace FollowMe302
                 modify.Parameters.Add("@postcode", System.Data.SqlDbType.VarChar).Value = member.Postcode;
                 modify.Parameters.Add("@firstName", System.Data.SqlDbType.VarChar).Value = member.FirstName;
                 modify.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar).Value = member.LastName;
-                modify.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = member.Email;
+                modify.Parameters.Add("@phoneNumber", System.Data.SqlDbType.VarChar).Value = member.PhoneNumber;
+
+                modifyUser.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = member.Email;
 
                 con.Open();
                 modify.ExecuteNonQuery();
+                modifyUser.ExecuteNonQuery();
                 con.Close();
+
                 //lblEditStatus.Text = "Details succesfully updated.";
                 lblModalTitle.Text = "CONGRATULATIONS!";
                 lblModalBody.Text = "Details successfully updated.";
@@ -93,11 +101,10 @@ namespace FollowMe302
                 insert.Parameters.Add("@stat", System.Data.SqlDbType.VarChar).Value = member.State;
                 insert.Parameters.Add("@country", System.Data.SqlDbType.VarChar).Value = member.Country;
                 insert.Parameters.Add("@postcode", System.Data.SqlDbType.VarChar).Value = member.Postcode;
-                insert.Parameters.Add("@userName", System.Data.SqlDbType.VarChar).Value = Session["name"];
                 insert.Parameters.Add("@followMeId", System.Data.SqlDbType.VarChar).Value = Session["fmID"];
                 insert.Parameters.Add("@firstName", System.Data.SqlDbType.VarChar).Value = member.FirstName;
                 insert.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar).Value = member.LastName;
-                insert.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = member.Email;
+                insert.Parameters.Add("@phoneNumber", System.Data.SqlDbType.VarChar).Value = member.PhoneNumber;
 
 
                 con.Open();

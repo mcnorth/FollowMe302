@@ -16,6 +16,8 @@ namespace FollowMe302
             string clientUserName = Session["name"].ToString();
             string clientFollowId = Session["fmID"].ToString();
 
+            int id = Convert.ToInt32(Session["fmID"]);
+
             //adds the session variable
             lblSession.Text = "Hello " + clientUserName;
 
@@ -25,7 +27,10 @@ namespace FollowMe302
             //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|FollowMeDatabase.mdf; Integrated Security=True");
 
             SqlDataReader rdr = null;
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [userName] = '" + clientUserName + "'", con);
+            SqlDataReader rdr2 = null;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [followMeId] = '" + id + "'", con);
+
+            SqlCommand cmd2 = new SqlCommand("SELECT * FROM [_User] WHERE [followMeId] = '" + id + "'", con);
 
             //opens connection reads the database as per the query
             //counts how many rows and adds to the variable datacount
@@ -45,24 +50,30 @@ namespace FollowMe302
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-
-
                     txtViewHouseNo.Text = (string)rdr["houseNumber"];
                     txtViewStreet.Text = (string)rdr["streetName"];
                     txtViewSuburb.Text = (string)rdr["suburb"];
                     txtViewState.Text = (string)rdr["stat"];
                     txtViewCountry.Text = (string)rdr["country"];
                     txtViewPostcode.Text = (string)rdr["postcode"];
-                    txtViewEmail.Text = (string)rdr["email"];
-                    txtViewUsername.Text = (string)rdr["userName"];
+                    txtViewPhoneNumber.Text = (string)rdr["phoneNumber"];
                     txtViewFirstName.Text = (string)rdr["firstName"];
                     txtViewLastName.Text = (string)rdr["lastName"];
 
-                    lblViewStatus.Text = "Details that exist.";
                     
+                }
+                con.Close();
+
+                con.Open();
+                rdr = cmd2.ExecuteReader();
+                while (rdr.Read())
+                {
+
+                    txtViewEmail.Text = (string)rdr["email"];
 
                 }
 
+                lblViewStatus.Text = "Details that exist.";
             }
 
             //if no records found leaves the text boxes blank
@@ -74,8 +85,8 @@ namespace FollowMe302
                 txtViewState.Text = "";
                 txtViewCountry.Text = "";
                 txtViewPostcode.Text = "";
+                txtViewPhoneNumber.Text = "";
                 txtViewEmail.Text = "";
-                txtViewUsername.Text = "";
                 txtViewFirstName.Text = "";
                 txtViewLastName.Text = "";
 
@@ -87,6 +98,7 @@ namespace FollowMe302
             }
 
             con.Close();
+            
         }
     }
 }

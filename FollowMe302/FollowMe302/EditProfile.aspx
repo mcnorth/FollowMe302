@@ -58,10 +58,17 @@
                            </div>
 
                            <div class="row">                                                              
-                               <div class="col-md-12">
+                               <div class="col-md-6">
                                    <div class="form-group">
                                        <label for="txtEditEmail">Email</label>
                                        <asp:TextBox ID="txtEditEmail" runat="server" CssClass="form-control"></asp:TextBox> 
+                                   </div>
+                               </div>
+
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label for="txtEditPhoneNumber">Phone Number</label>
+                                       <asp:TextBox ID="txtEditPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>

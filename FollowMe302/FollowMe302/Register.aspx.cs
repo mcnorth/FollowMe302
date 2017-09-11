@@ -21,6 +21,7 @@ namespace FollowMe302
             MemberEntity member = new MemberEntity();
             member.UserName = txtuserNameRegister.Text;
             member.Password = txtpwdRegister.Text;
+            member.Email = txtemailRegister.Text;
             
 
             if(rdRegPersonal.Checked == true)
@@ -32,8 +33,8 @@ namespace FollowMe302
                 SqlDataReader rdr = null;
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM [_User] WHERE [userName] = '" + member.UserName + "'", con);
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO _User (userName, password)" +
-                            "VALUES (@userName, @password)", con);
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO _User (userName, password, email)" +
+                            "VALUES (@userName, @password, @email)", con);
 
                 con.Open();
 
@@ -59,7 +60,8 @@ namespace FollowMe302
                 {
                     insertCmd.Parameters.Add("@userName", System.Data.SqlDbType.VarChar).Value = member.UserName;
                     insertCmd.Parameters.Add("@password", System.Data.SqlDbType.VarChar).Value = member.Password;
-                    
+                    insertCmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = member.Email;
+
 
                     //con.Open();
                     insertCmd.ExecuteNonQuery();
@@ -82,8 +84,8 @@ namespace FollowMe302
                 SqlDataReader rdr = null;
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM [_Company] WHERE [companyName] = '" + member.UserName + "'", con);
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO _Company (companyName, password)" +
-                            "VALUES (@companyName, @password)", con);
+                SqlCommand insertCmd = new SqlCommand("INSERT INTO _Company (companyName, password, email)" +
+                            "VALUES (@companyName, @password, @email)", con);
                 con.Open();
 
                 //checks for the username in the database from the command
@@ -109,7 +111,8 @@ namespace FollowMe302
                 {
                     insertCmd.Parameters.Add("@companyName", System.Data.SqlDbType.VarChar).Value = member.UserName;
                     insertCmd.Parameters.Add("@password", System.Data.SqlDbType.VarChar).Value = member.Password;
-                    
+                    insertCmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = member.Email;
+
 
                     //con.Open();
                     insertCmd.ExecuteNonQuery();

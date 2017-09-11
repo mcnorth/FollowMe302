@@ -36,8 +36,7 @@ namespace FollowMe302
                 SqlDataReader rdr = null;
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM [_User] WHERE [userName] = '" + member.UserName + "' AND [password] = '" + member.Password + "'", con);
-                SqlCommand insertCmd = new SqlCommand("INSERT INTO _User (userName, password, email)" +
-                            "VALUES (@userName, @password, @email)", con);
+                
 
                 con.Open();
 

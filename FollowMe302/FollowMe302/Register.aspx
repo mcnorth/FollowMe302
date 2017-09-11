@@ -20,6 +20,10 @@
                 <asp:TextBox ID="txtuserNameRegister" runat="server" placeholder="userName" CssClass="form-control"></asp:TextBox>                
             </div>
 
+               <div class="form-group">
+                <asp:TextBox ID="txtemailRegister" runat="server" placeholder="email" CssClass="form-control"></asp:TextBox>                  
+            </div>
+
             <div class="form-group">
                 <asp:TextBox ID="txtpwdRegister" runat="server" placeholder="password" CssClass="form-control"></asp:TextBox>                  
             </div>

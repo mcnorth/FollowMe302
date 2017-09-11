@@ -26,7 +26,7 @@ namespace FollowMe302
 
             SqlDataReader rdr = null;
             SqlDataReader rdrCo = null;
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [_CompanyDetails] WHERE [companyId] = (SELECT companyId FROM _Company WHERE companyName = '" + compUserName + "')", con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [_CompanyDetails] WHERE [companyId] = '" + compFollowId + "'", con);
 
             SqlCommand cmdCo = new SqlCommand("SELECT * FROM [_Company] WHERE [companyName] = '" + compUserName + "'", con);
 

@@ -39,15 +39,15 @@ namespace FollowMe302
             SqlDataReader rdr = null;
 
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [_CompanyDetails] WHERE [companyRep] = '" + member.CompanyRep + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [_CompanyDetails] WHERE [companyId] = '" + Session["fmID"] + "'", con);
 
             SqlCommand modify = new SqlCommand("UPDATE _CompanyDetails SET companyRep=@companyRep, phoneNumber=@phoneNumber, address=@address, suburb=@suburb, postcode=@postcode", con);
 
-            SqlCommand insert = new SqlCommand(" INSERT INTO _CompanyDetails (companyRep, phoneNumber, address, suburb, postcode)" +
-                                    "VALUES (@companyRep, @phoneNumber, @address, @suburb, @postcode)", con);
+            SqlCommand insert = new SqlCommand(" INSERT INTO _CompanyDetails (companyRep, phoneNumber, address, suburb, postcode, companyId)" +
+                                    "VALUES (@companyRep, @phoneNumber, @address, @suburb, @postcode, @companyId)", con);
 
 
-            SqlCommand insertId = new SqlCommand("UPDATE _CompanyDetails SET companyId = (SELECT companyId FROM _Company WHERE companyName = '" + compName + "') WHERE companyRep=@companyRep", con);
+            
 
             //checks the database to see if user exists
             con.Open();
@@ -88,12 +88,13 @@ namespace FollowMe302
                 insert.Parameters.Add("@address", System.Data.SqlDbType.VarChar).Value = member.Address;
                 insert.Parameters.Add("@suburb", System.Data.SqlDbType.VarChar).Value = member.Suburb;
                 insert.Parameters.Add("@postcode", System.Data.SqlDbType.VarChar).Value = member.Postcode;
+                insert.Parameters.Add("@companyId", System.Data.SqlDbType.VarChar).Value = Convert.ToInt32(Session["fmID"]);
 
-                insertId.Parameters.Add("@companyRep", System.Data.SqlDbType.VarChar).Value = member.CompanyRep;
+                
 
                 con.Open();
                 insert.ExecuteNonQuery();
-                insertId.ExecuteNonQuery();
+                
                 con.Close();
 
                 //lblProStatus.Text = "Details succesfully updated.";

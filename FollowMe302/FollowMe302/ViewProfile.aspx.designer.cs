@@ -58,15 +58,6 @@ namespace FollowMe302 {
         protected global::System.Web.UI.WebControls.TextBox txtViewLastName;
         
         /// <summary>
-        /// txtViewUsername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtViewUsername;
-        
-        /// <summary>
         /// txtViewEmail control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace FollowMe302 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtViewEmail;
+        
+        /// <summary>
+        /// txtViewPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtViewPhoneNumber;
         
         /// <summary>
         /// txtViewHouseNo control.
