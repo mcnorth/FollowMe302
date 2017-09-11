@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SendClientNotification.aspx.cs" Inherits="FollowMe302.SendClientNotification" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SendClientNotification.aspx.cs" Inherits="FollowMe302.SendClientNotification" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -54,6 +54,7 @@
                        
                        <div class="clearfix">
                            <asp:Label ID="lblSendStatus" runat="server" Text=" "></asp:Label>
+                           <asp:Label ID="lblEmailStatus" runat="server" Text=" "></asp:Label>
                        </div>
                    </div>
                </div>
