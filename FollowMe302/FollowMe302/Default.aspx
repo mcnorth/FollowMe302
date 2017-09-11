@@ -14,6 +14,7 @@
 <body style="background-color:#8cc63e">
     <div class="container">
         <form id="form1" runat="server">
+            <div id="bg">
             <img src="images/front-logo.png" class="img-responsive center" id="front-logo" />
             <br />
             <div class="form-group">
@@ -33,6 +34,8 @@
 
             </div>
             <button type="submit" class="btn btn-default">Submit</button>--%>
+
+                </div>
 
         </form>
 

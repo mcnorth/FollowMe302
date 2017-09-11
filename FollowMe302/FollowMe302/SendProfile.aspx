@@ -58,13 +58,15 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendFirstName" runat="server" placeholder="First Name" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtSendFirstName">First Name</label>
+                                       <asp:TextBox ID="txtSendFirstName" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtSendLastName">Last Name</label>
+                                       <asp:TextBox ID="txtSendLastName" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -72,13 +74,15 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
+                                       <label for="txtSendFollowId">Follow Me ID</label>
                                        <asp:TextBox ID="txtSendFollowId" runat="server" placeholder="Follow Me ID" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtSendEmail">Email</label>
+                                       <asp:TextBox ID="txtSendEmail" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -86,19 +90,22 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendHouseNo" runat="server" placeholder="House Number" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtSendHouseNo">House Number</label>
+                                       <asp:TextBox ID="txtSendHouseNo" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendStreet" runat="server" placeholder="Street Name" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtSendStreet">Street Name</label>
+                                       <asp:TextBox ID="txtSendStreet" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendSuburb" runat="server" placeholder="Suburb" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtSendSuburb">Suburb</label>
+                                       <asp:TextBox ID="txtSendSuburb" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -106,19 +113,22 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendState" runat="server" placeholder="State" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtSendState">State</label>
+                                       <asp:TextBox ID="txtSendState" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendCountry" runat="server" placeholder="Country" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtSendCountry">Country</label>
+                                       <asp:TextBox ID="txtSendCountry" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtSendPostcode" runat="server" placeholder="Postcode" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtSendPostcode">Postcode</label>
+                                       <asp:TextBox ID="txtSendPostcode" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>

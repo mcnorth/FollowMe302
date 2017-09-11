@@ -41,12 +41,14 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditRepName" runat="server" placeholder="Representative Name" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtEditRepName">Representative Name</label>
+                                       <asp:TextBox ID="txtEditRepName" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditPhoneNumber" runat="server" placeholder="Phone Number" CssClass="form-control"></asp:TextBox>                                 
+                                       <label for="txtEditPhoneNumber">Phone Number</label>
+                                       <asp:TextBox ID="txtEditPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>                                 
                                    </div>
                                </div> 
                            </div>
@@ -54,13 +56,15 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditAddress" runat="server" placeholder="Address" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtEditAddress">Address</label>
+                                       <asp:TextBox ID="txtEditAddress" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditSuburb" runat="server" placeholder="Suburb" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtEditSuburb">Suburb</label>
+                                       <asp:TextBox ID="txtEditSuburb" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -68,7 +72,8 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditPostcode" runat="server" placeholder="Postcode" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtEditPostcode">Postcode</label>
+                                       <asp:TextBox ID="txtEditPostcode" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>                                                              
                            </div>                           

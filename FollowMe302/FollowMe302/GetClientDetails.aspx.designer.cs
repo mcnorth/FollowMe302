@@ -31,24 +31,6 @@ namespace FollowMe302 {
         protected global::System.Web.UI.HtmlControls.HtmlForm editForm;
         
         /// <summary>
-        /// txtClientId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClientId;
-        
-        /// <summary>
-        /// btnFind control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFind;
-        
-        /// <summary>
         /// txtGetFirstName control.
         /// </summary>
         /// <remarks>

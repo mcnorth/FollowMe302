@@ -45,13 +45,15 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewFirstName" runat="server" placeholder="First Name" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtViewFirstName">First Name</label>
+                                       <asp:TextBox ID="txtViewFirstName" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtViewLastName">Last Name</label>
+                                       <asp:TextBox ID="txtViewLastName" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -59,13 +61,15 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewUsername" runat="server" placeholder="Username" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtViewUsername">Username</label>
+                                       <asp:TextBox ID="txtViewUsername" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtViewEmail">Email</label>
+                                       <asp:TextBox ID="txtViewEmail" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -73,19 +77,22 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewHouseNo" runat="server" placeholder="House Number" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtViewHouseNo">House Number</label>
+                                       <asp:TextBox ID="txtViewHouseNo" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewStreet" runat="server" placeholder="Street Name" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtViewStreet">Street Name</label>
+                                       <asp:TextBox ID="txtViewStreet" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewSuburb" runat="server" placeholder="Suburb" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtViewSuburb">Suburb</label>
+                                       <asp:TextBox ID="txtViewSuburb" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -93,19 +100,22 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewState" runat="server" placeholder="State" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtViewState">State</label>
+                                       <asp:TextBox ID="txtViewState" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewCountry" runat="server" placeholder="Country" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtViewCountry">Country</label>
+                                       <asp:TextBox ID="txtViewCountry" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtViewPostcode" runat="server" placeholder="Postcode" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtViewPostcode">Postcode</label>
+                                       <asp:TextBox ID="txtViewPostcode" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div> 

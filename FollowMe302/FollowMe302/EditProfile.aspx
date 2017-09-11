@@ -44,47 +44,24 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditFirstName" runat="server" placeholder="First Name" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtEditFirstName">First Name</label>
+                                       <asp:TextBox ID="txtEditFirstName" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtEditLastName">Last Name</label>
+                                       <asp:TextBox ID="txtEditLastName" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
 
-                           <div class="row">
-                               <div class="col-md-6">
+                           <div class="row">                                                              
+                               <div class="col-md-12">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditUsername" runat="server" placeholder="Username" CssClass="form-control"></asp:TextBox>                                   
-                                   </div>
-                               </div>
-                               
-                               <div class="col-md-6">
-                                   <div class="form-group">
-                                       <asp:TextBox ID="txtEditEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox> 
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="row">
-                               <div class="col-md-4">
-                                   <div class="form-group">
-                                       <asp:TextBox ID="txtEditHouseNo" runat="server" placeholder="House Number" CssClass="form-control"></asp:TextBox>                                   
-                                   </div>
-                               </div>
-                               
-                               <div class="col-md-4">
-                                   <div class="form-group">
-                                       <asp:TextBox ID="txtEditStreet" runat="server" placeholder="Street Name" CssClass="form-control"></asp:TextBox> 
-                                   </div>
-                               </div>
-
-                               <div class="col-md-4">
-                                   <div class="form-group">
-                                       <asp:TextBox ID="txtEditSuburb" runat="server" placeholder="Suburb" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtEditEmail">Email</label>
+                                       <asp:TextBox ID="txtEditEmail" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -92,19 +69,45 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditState" runat="server" placeholder="State" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtEditHouseNo">House Number</label>
+                                       <asp:TextBox ID="txtEditHouseNo" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditCountry" runat="server" placeholder="Country" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtEditStreet">Street Name</label>
+                                       <asp:TextBox ID="txtEditStreet" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtEditPostcode" runat="server" placeholder="Postcode" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtEditSuburb">Suburb</label>
+                                       <asp:TextBox ID="txtEditSuburb" runat="server" CssClass="form-control"></asp:TextBox> 
+                                   </div>
+                               </div>
+                           </div>
+
+                           <div class="row">
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label for="txtEditState">State</label>
+                                       <asp:TextBox ID="txtEditState" runat="server" CssClass="form-control"></asp:TextBox>                                   
+                                   </div>
+                               </div>
+                               
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label for="txtEditCountry">Country</label>
+                                       <asp:TextBox ID="txtEditCountry" runat="server" CssClass="form-control"></asp:TextBox> 
+                                   </div>
+                               </div>
+
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label for="txtEditPostcode">Postcode</label>
+                                       <asp:TextBox ID="txtEditPostcode" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>

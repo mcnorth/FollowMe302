@@ -26,7 +26,7 @@ namespace FollowMe302
             MemberEntity member = new MemberEntity();
             member.FirstName = txtEditFirstName.Text;
             member.LastName = txtEditLastName.Text;
-            member.UserName = txtEditUsername.Text;
+
             member.Email = txtEditEmail.Text;
             member.HouseNumber = txtEditHouseNo.Text;
             member.StreetName = txtEditStreet.Text;
@@ -42,15 +42,13 @@ namespace FollowMe302
 
             SqlDataReader rdr = null;
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [userName] = '" + member.UserName + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [userName] = '" + Session["name"] + "'", con);
 
-            SqlCommand modify = new SqlCommand("UPDATE _UserDetails SET houseNumber=@houseNumber, streetName=@streetName, suburb=@suburb, stat=@stat, country=@country, postcode=@postcode, userName=@userName, firstName=@firstName, lastName=@lastName, email=@email", con);
+            SqlCommand modify = new SqlCommand("UPDATE _UserDetails SET houseNumber=@houseNumber, streetName=@streetName, suburb=@suburb, stat=@stat, country=@country, postcode=@postcode,  firstName=@firstName, lastName=@lastName, email=@email", con);
 
-            SqlCommand insert = new SqlCommand(" INSERT INTO _UserDetails (houseNumber, streetName, suburb, stat, country, postcode, email, userName, firstName, lastName)" +
-                                    "VALUES (@houseNumber, @streetName, @suburb, @stat, @country, @postcode, @email, @userName, @firstName, @lastName)", con);
-
-
-            SqlCommand insertId = new SqlCommand("UPDATE _UserDetails SET followMeId = (SELECT followMeId FROM _User WHERE userName = @userName) WHERE userName=@userName", con);
+            SqlCommand insert = new SqlCommand(" INSERT INTO _UserDetails (houseNumber, streetName, suburb, stat, country, postcode, email, userName, followMeId, firstName, lastName)" +
+                                    "VALUES (@houseNumber, @streetName, @suburb, @stat, @country, @postcode, @email, @userName, @followMeId, @firstName, @lastName)", con);
+           
 
             //checks the database to see if user exists
             con.Open();
@@ -72,7 +70,6 @@ namespace FollowMe302
                 modify.Parameters.Add("@stat", System.Data.SqlDbType.VarChar).Value = member.State;
                 modify.Parameters.Add("@country", System.Data.SqlDbType.VarChar).Value = member.Country;
                 modify.Parameters.Add("@postcode", System.Data.SqlDbType.VarChar).Value = member.Postcode;
-                modify.Parameters.Add("@userName", System.Data.SqlDbType.VarChar).Value = member.UserName;
                 modify.Parameters.Add("@firstName", System.Data.SqlDbType.VarChar).Value = member.FirstName;
                 modify.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar).Value = member.LastName;
                 modify.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = member.Email;
@@ -82,7 +79,7 @@ namespace FollowMe302
                 con.Close();
                 //lblEditStatus.Text = "Details succesfully updated.";
                 lblModalTitle.Text = "CONGRATULATIONS!";
-                lblModalBody.Text = "Details succesfully updated.";
+                lblModalBody.Text = "Details successfully updated.";
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                 upModal.Update();
             }
@@ -96,23 +93,22 @@ namespace FollowMe302
                 insert.Parameters.Add("@stat", System.Data.SqlDbType.VarChar).Value = member.State;
                 insert.Parameters.Add("@country", System.Data.SqlDbType.VarChar).Value = member.Country;
                 insert.Parameters.Add("@postcode", System.Data.SqlDbType.VarChar).Value = member.Postcode;
-                insert.Parameters.Add("@userName", System.Data.SqlDbType.VarChar).Value = member.UserName;
+                insert.Parameters.Add("@userName", System.Data.SqlDbType.VarChar).Value = Session["name"];
+                insert.Parameters.Add("@followMeId", System.Data.SqlDbType.VarChar).Value = Session["fmID"];
                 insert.Parameters.Add("@firstName", System.Data.SqlDbType.VarChar).Value = member.FirstName;
                 insert.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar).Value = member.LastName;
                 insert.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = member.Email;
 
-                insertId.Parameters.Add("@userName", System.Data.SqlDbType.VarChar).Value = member.UserName;
 
                 con.Open();
                 insert.ExecuteNonQuery();
-                insertId.ExecuteNonQuery();
                 con.Close();
 
 
 
                 //lblEditStatus.Text = "Details succesfully updated.";
                 lblModalTitle.Text = "CONGRATULATIONS!";
-                lblModalBody.Text = "Details succesfully updated.";
+                lblModalBody.Text = "Details successfully added.";
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                 upModal.Update();
 

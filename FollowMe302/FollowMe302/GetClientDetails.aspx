@@ -34,33 +34,22 @@
                <div class="panel panel-default">
                    <div class="panel-heading">
                        <p id="pHeading">Get Client Details</p>
-                       <p id="pSubHeading">Fill in the Follow Me Id you wish to find.</p>
+                       <p id="pSubHeading">The details that need to be updated from the client.</p>
                    </div>
                    <div class="panel-body">
-                       <form id="editForm" runat="server">
+                       <form id="editForm" runat="server">                           
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtClientId" runat="server" placeholder="Follow Me Id" CssClass="form-control"></asp:TextBox>                                   
-                                   </div>
-                               </div>
-                               <div class="col-md-6">
-                                   <div class="form-group">
-                                       <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" CssClass="btn pull-right fBtn" />                                  
-                                   </div>
-                               </div> 
-                           </div>
-                           <br />
-                           <div class="row">
-                               <div class="col-md-6">
-                                   <div class="form-group">
-                                       <asp:TextBox ID="txtGetFirstName" runat="server" placeholder="First Name" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtGetFirstName">First Name</label>
+                                       <asp:TextBox ID="txtGetFirstName" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetLastName" runat="server" placeholder="Last Name" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtGetLastName">Last Name</label>
+                                       <asp:TextBox ID="txtGetLastName" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -68,13 +57,15 @@
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetFollowId" runat="server" placeholder="Follow Me ID" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtGetFollowId">Follow Me ID</label>
+                                       <asp:TextBox ID="txtGetFollowId" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-6">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetEmail" runat="server" placeholder="Email" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtGetEmail">Email</label>
+                                       <asp:TextBox ID="txtGetEmail" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -82,19 +73,22 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetHouseNo" runat="server" placeholder="House Number" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtGetHouseNo">House Number</label>
+                                       <asp:TextBox ID="txtGetHouseNo" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetStreet" runat="server" placeholder="Street Name" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtGetStreet">Street Name</label>
+                                       <asp:TextBox ID="txtGetStreet" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetSuburb" runat="server" placeholder="Suburb" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtGetSuburb">Suburb</label>
+                                       <asp:TextBox ID="txtGetSuburb" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
@@ -102,19 +96,22 @@
                            <div class="row">
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetState" runat="server" placeholder="State" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtGetState">State</label>
+                                       <asp:TextBox ID="txtGetState" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
                                </div>
                                
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetCountry" runat="server" placeholder="Country" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtGetCountry">Country</label>
+                                       <asp:TextBox ID="txtGetCountry" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
 
                                <div class="col-md-4">
                                    <div class="form-group">
-                                       <asp:TextBox ID="txtGetPostcode" runat="server" placeholder="Postcode" CssClass="form-control"></asp:TextBox> 
+                                       <label for="txtGetPostcode">Postcode</label>
+                                       <asp:TextBox ID="txtGetPostcode" runat="server" CssClass="form-control"></asp:TextBox> 
                                    </div>
                                </div>
                            </div>
