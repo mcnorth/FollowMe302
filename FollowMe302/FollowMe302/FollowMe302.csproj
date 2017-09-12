@@ -85,6 +85,8 @@
     <Content Include="BusContactUs.aspx" />
     <Content Include="BusDashboard.aspx" />
     <Content Include="BusTermsConditions.aspx" />
+    <Content Include="ClientContact.aspx" />
+    <Content Include="ClientTermsConditions.aspx" />
     <Content Include="EditCompanyDetails.aspx" />
     <Content Include="GetClientDetails.aspx" />
     <Content Include="packages.config" />
@@ -142,12 +144,26 @@
     <Compile Include="BusTermsConditions.aspx.designer.cs">
       <DependentUpon>BusTermsConditions.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClientContact.aspx.cs">
+      <DependentUpon>ClientContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientContact.aspx.designer.cs">
+      <DependentUpon>ClientContact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientDashboard.aspx.cs">
       <DependentUpon>ClientDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClientDashboard.aspx.designer.cs">
       <DependentUpon>ClientDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientTermsConditions.aspx.cs">
+      <DependentUpon>ClientTermsConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientTermsConditions.aspx.designer.cs">
+      <DependentUpon>ClientTermsConditions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Csharp\DatabaseController.cs" />
     <Compile Include="Csharp\MemberEntity.cs" />

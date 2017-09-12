@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BusContactUs.aspx.cs" Inherits="FollowMe302.BusContactUs" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClientContact.aspx.cs" Inherits="FollowMe302.ClientContact" %>
 
 <!DOCTYPE html>
 
@@ -17,16 +17,15 @@
            <div id="sideNav" class="col-sm-2">
                <img src="images/white-logo.png" class="img-responsive center" id="front-logo-white" />
                <hr />
-               <a href="BusDashboard.aspx" role="button" id="btnBusDashboard" class="btn btn-lg btn-block fBtn">Dashboard</a>
-               <br />               
-               <a href="EditCompanyDetails.aspx" role="button" id="btnEditCompanyDetails" class="btn btn-lg btn-block fBtn">Edit Company Details</a> 
+               <a href="ClientDashboard.aspx" role="button" id="btnDashboard" class="btn btn-lg btn-block fBtn">Dashboard</a>
                <br />
-               <a href="ViewCompanyDetails.aspx" role="button" id="btnViewCompanyDetails" class="btn btn-lg btn-block fBtn">View Company Details</a> 
+               <a href="EditProfile.aspx" role="button" id="btnEditProfile" class="btn btn-lg btn-block fBtn">Edit Profile</a>              
+               <br />
+               <a href="ViewProfile.aspx" role="button" id="btnViewProfile" class="btn btn-lg btn-block fBtn">View Profile</a>  
+               <br />
+               <a href="SendProfile.aspx" role="button" id="btnSendProfile" class="btn btn-lg btn-block fBtn">Send Profile</a> 
                <br />
                <a href="Login.aspx" role="button" id="btnLogout" class="btn btn-lg btn-block fBtn">Log Out</a> 
-               <div id="footer">
-                   
-               </div>
            </div>
            <div id="mainContent" class="col-sm-10">
                <div class="row">
@@ -35,8 +34,8 @@
                            <asp:Label ID="lblSession" runat="server" Text="">Hello</asp:Label>
                        </div>
                        <div class="col-sm-3">
-                           <a href="BusTermsConditions.aspx" id="fContentLeft">Terms & Conditions</a>
-                           <a href="BusContactUs.aspx" id="fContentRight">Contact us</a>
+                           <a href="ClientTermsConditions.aspx" id="fContentLeft">Terms & Conditions</a>
+                           <a href="ClientContact.aspx" id="fContentRight">Contact us</a>
                        </div>
                        <div class="col-sm-6">
                        
