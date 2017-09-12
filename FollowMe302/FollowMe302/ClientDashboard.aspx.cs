@@ -11,6 +11,11 @@ namespace FollowMe302
 {
     public partial class ClientDashboard : System.Web.UI.Page
     {
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the app checks the database table for existing notifications
+        /// For each notification it finds, it will dynamically a delete button
+        /// </summary> 
         protected void Page_Load(object sender, EventArgs e)
         {
             string clientUserName = Session["name"].ToString();
@@ -79,6 +84,12 @@ namespace FollowMe302
 
         }
 
+        /// <summary>
+        /// btnDelete_Click event for the delete button
+        /// It takes the id from the button, and checks against the database
+        /// Deletes the record from teh database table
+        /// Reloads the page
+        /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;

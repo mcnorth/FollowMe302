@@ -16,6 +16,11 @@ namespace FollowMe302
 {
     public partial class ClientContact : System.Web.UI.Page
     {
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the session variables are added to string variables
+        /// It uses an asp label to attach some text with the session variable
+        /// </summary> 
         protected void Page_Load(object sender, EventArgs e)
         {
             string compUserName = Session["name"].ToString();
@@ -25,9 +30,14 @@ namespace FollowMe302
             lblSession.Text = "Hello " + compUserName;
         }
 
+        /// <summary>
+        /// btnContactSend_Click is a click event from the send button
+        /// This is how the app integrates with Postmark API to send a message from teh contact us page
+        /// It shows a bootstrap modal for either fails and success.
+        /// </summary>
         protected void btnContactSend_Click(object sender, EventArgs e)
         {
-            // Send an email asynchronously:
+            
             var message = new PostmarkMessage()
             {
                 To = "followmesit302@gmail.com",
@@ -43,8 +53,7 @@ namespace FollowMe302
                     }
             };
 
-            //var imageContent = File.ReadAllBytes("test.jpg");
-            //message.AddAttachment(imageContent, "test.jpg", "image/jpg", "cid:embed_name.jpg");
+            
 
             PostmarkClient client = new PostmarkClient("efc7197a-4c0d-4f4b-92f7-43c612ed74b1");
             PostmarkResponse response = client.SendMessage(message);

@@ -14,6 +14,7 @@
 </head>
 <body style="background-color:#8cc63e">
     <div class="container-fluid">
+    
        <div class="row">
            <div id="sideNav" class="col-sm-2">
                <img src="images/white-logo.png" class="img-responsive center" id="front-logo-white" />
@@ -29,6 +30,7 @@
                    
                </div>
            </div>
+
            <div id="mainContent" class="col-sm-10">
                <div class="row">
                    <div id="top-header">

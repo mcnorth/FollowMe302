@@ -14,6 +14,11 @@ namespace FollowMe302
     {
         public string followId { get; private set; }
 
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the app checks the database table for existing notifications
+        /// For each notification it finds, it will dynamically add view, send and delete buttons
+        /// </summary> 
         protected void Page_Load(object sender, EventArgs e)
         {
             string compUserName = Session["name"].ToString();
@@ -91,6 +96,13 @@ namespace FollowMe302
             }
         }
 
+        /// <summary>
+        /// btnView_Click event for the view button
+        /// Reomves existing sessions variables
+        /// It takes the id from the button, removes the letters and keeps the digit.
+        /// The digit is the follow me id for the client adds to a session
+        /// Redirects to the get client details page
+        /// </summary>
         private void btnView_Click(object sender, EventArgs e)
         {
             
@@ -104,6 +116,13 @@ namespace FollowMe302
             //Response.Redirect("~/client.aspx?field1="+ btnID);
         }
 
+        /// <summary>
+        /// btnSend_Click event for the send button
+        /// Reomves existing sessions variables
+        /// It takes the id from the button, removes the letters and keeps the digit.
+        /// The digit is the follow me id for the client adds to a session
+        /// Redirects to the SendClientNotification page
+        /// </summary>
         private void btnSend_Click(object sender, EventArgs e)
         {
             Session.Remove("sendid");
@@ -115,6 +134,12 @@ namespace FollowMe302
             Response.Redirect("~/SendClientNotification.aspx");
         }
 
+        /// <summary>
+        /// btnDelete_Click event for the delete button
+        /// It takes the id from the button, and checks against the database
+        /// Deletes the record from teh database table
+        /// Reloads the page
+        /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;

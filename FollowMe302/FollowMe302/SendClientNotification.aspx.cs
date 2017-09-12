@@ -16,6 +16,17 @@ namespace FollowMe302
 {
     public partial class SendClientNotification : System.Web.UI.Page
     {
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the session variables are added to string variables
+        /// It uses an asp label to attach some text with the session variable
+        /// </summary> 
+        /// 
+
+        /// <summary>
+        /// This method also finds the followme id username from the database
+        /// and adds it to the message area
+        /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             string compUserName = Session["name"].ToString();
@@ -66,7 +77,10 @@ namespace FollowMe302
         }
 
 
-
+        /// <summary>
+        /// btnSendMyProfile_Click is an event that is fired when the send button is clicked
+        /// It adds a record to the notification table (user id and company name)
+        /// </summary> 
         //protected async void btnSendMyProfile_Click(object sender, EventArgs e)
         public void btnSendMyProfile_Click(object sender, EventArgs e)
         {
@@ -125,6 +139,11 @@ namespace FollowMe302
 
         }
 
+        /// <summary>
+        /// Send Email is a method for sending an email
+        /// This is how the app integrates with Postmark API to send a message from teh send notification page
+        /// It shows a bootstrap modal for either fails and success.
+        /// </summary>
         public bool SendEmail()
         {
             // Send an email asynchronously:

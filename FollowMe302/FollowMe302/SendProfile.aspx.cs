@@ -12,6 +12,19 @@ namespace FollowMe302
 {
     public partial class SendProfile : System.Web.UI.Page
     {
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the session variables are added to string variables
+        /// It uses an asp label to attach some text with the session variable
+        /// </summary> 
+        /// 
+
+        /// <summary>
+        /// This method also finds the followme id username from the database
+        /// and adds the selected records to the textboxes only if the user exists.
+        /// If not a error message pop up.
+        /// It also dynamically adds the company names in the database to a select menu list items
+        /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             string clientUserName = Session["name"].ToString();
@@ -106,6 +119,12 @@ namespace FollowMe302
             }
         }
 
+        /// <summary>
+        /// btnSendMyProfile_Click is an event fired by the send button
+        /// It takes the company name selected and adds it to the notifications table
+        /// If not a error message pop up.
+        /// It also dynamically adds the company names in the database to a select menu list items
+        /// </summary>
         protected void btnSendMyProfile_Click(object sender, EventArgs e)
         {
             //varible for drop down list
@@ -178,6 +197,11 @@ namespace FollowMe302
 
         }
 
+        /// <summary>
+        /// btnClose_Click is an event fired by the close button on the modal pop up
+        /// It removes all the company names from the select menu item list and reloads the page
+        /// Doing this prevents it from loading the names again and appending to the list.
+        /// </summary>
         protected void btnClose_Click(object sender, EventArgs e)
         {
             ddlSendPro.Items.Clear();

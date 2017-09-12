@@ -11,6 +11,19 @@ namespace FollowMe302
 {
     public partial class GetClientDetails : System.Web.UI.Page
     {
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the session variables are added to string variables
+        /// It uses an asp label to attach some text with the session variable
+        /// </summary> 
+        
+
+        /// <summary>
+        /// This method also loads data from a database table
+        /// The app takes an id and finds the record in the table
+        /// If the record is found it will add the data to the textboxes
+        /// If record is not found it will display and error message
+        /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             string compUserName = Session["name"].ToString();

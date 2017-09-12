@@ -11,6 +11,18 @@ namespace FollowMe302
 {
     public partial class ViewProfile : System.Web.UI.Page
     {
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the session variables are added to string variables
+        /// It uses an asp label to attach some text with the session variable
+        /// </summary> 
+        /// 
+
+        /// <summary>
+        /// This method also finds the followme id company from the database
+        /// and adds the selected records to the textboxes only if the user exists.
+        /// If not a error message pop up.
+        /// </summary>
         protected void Page_Load(object sender, EventArgs e)
         {
             string clientUserName = Session["name"].ToString();

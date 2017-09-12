@@ -16,17 +16,18 @@ namespace FollowMe302
 
         }
 
+        /// <summary>
+        /// btnLoginPage_Click is an event triggered from the login button
+        /// This is where the app gets the users input and checks against the database
+        /// If a record is found it will load the page that was checked via the radio button
+        /// </summary> 
         protected void btnLoginPage_Click(object sender, EventArgs e)
-        {
-            
-
+        {            
             MemberEntity member = new MemberEntity();
             member.UserName = txtuserNameLogin.Text;
             member.Password = txtpwdLogin.Text;
             string followID = "";
-
             
-
             if (rdPersonal.Checked == true)
             {
                 SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");

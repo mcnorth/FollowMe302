@@ -11,6 +11,11 @@ namespace FollowMe302
 {
     public partial class EditProfile : System.Web.UI.Page
     {
+        /// <summary>
+        /// Page load happens when the page is loaded
+        /// This is where the session variables are added to string variables
+        /// It uses an asp label to attach some text with the session variable
+        /// </summary> 
         protected void Page_Load(object sender, EventArgs e)
         {
             string clientUserName = Session["name"].ToString();
@@ -20,6 +25,13 @@ namespace FollowMe302
             lblSession.Text = "Hello " + clientUserName;
         }
 
+        /// <summary>
+        /// btnEditCoDetails_Click is the event from the update button
+        /// This is where the app takes the user input from teh textboxes
+        /// It then checks the database table [user details] for existing records
+        /// If record is found it will modify the existing data
+        /// If records are not found it will update the table
+        /// </summary> 
         protected void btnUpdateProfile_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(Session["fmID"]);

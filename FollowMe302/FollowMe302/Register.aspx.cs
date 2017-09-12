@@ -16,6 +16,12 @@ namespace FollowMe302
 
         }
 
+        /// <summary>
+        /// btnRegisterPage_Click is an event triggered from the register button
+        /// This is where the app gets the users input and checks against the database
+        /// If a record is found it will advise the user to choose a different username
+        /// If record is not found the app will update the database table and advise the user to log in
+        /// </summary> 
         protected void btnRegisterPage_Click(object sender, EventArgs e)
         {
             MemberEntity member = new MemberEntity();
