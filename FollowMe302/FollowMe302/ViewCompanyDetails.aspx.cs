@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using FollowMe302.Csharp;
+using FollowMe302.scripts;
 using System.Data.SqlClient;
 
 namespace FollowMe302

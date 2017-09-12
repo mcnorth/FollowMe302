@@ -94,6 +94,7 @@
     <Content Include="fonts\ROBOTO-BOLD.TTF" />
     <Content Include="fonts\ROBOTO-LIGHT.TTF" />
     <Content Include="fonts\ROBOTO-REGULAR.TTF" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -165,8 +166,7 @@
     <Compile Include="ClientTermsConditions.aspx.designer.cs">
       <DependentUpon>ClientTermsConditions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Csharp\DatabaseController.cs" />
-    <Compile Include="Csharp\MemberEntity.cs" />
+    <Compile Include="scripts\MemberEntity.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.Linq.Mapping; //maps data to sql table
-using FollowMe302.Csharp;
+using FollowMe302.scripts;
 
-namespace FollowMe302.Csharp
+namespace FollowMe302.scripts
 {
     public class MemberEntity
     {
