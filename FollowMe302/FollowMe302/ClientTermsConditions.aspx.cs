@@ -11,7 +11,11 @@ namespace FollowMe302
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string compUserName = Session["name"].ToString();
+            string compFollowId = Session["fmID"].ToString();
 
+            //adds the session variable
+            lblSession.Text = "Hello " + compUserName;
         }
     }
 }
