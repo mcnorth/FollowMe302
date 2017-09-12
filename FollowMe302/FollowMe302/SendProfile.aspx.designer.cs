@@ -193,6 +193,42 @@ namespace FollowMe302 {
         protected global::System.Web.UI.WebControls.Button btnClose;
         
         /// <summary>
+        /// theupModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel theupModal;
+        
+        /// <summary>
+        /// lblmodeltitle2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmodeltitle2;
+        
+        /// <summary>
+        /// lblmodelbody2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblmodelbody2;
+        
+        /// <summary>
+        /// btn2Close control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn2Close;
+        
+        /// <summary>
         /// lblSendStatus control.
         /// </summary>
         /// <remarks>

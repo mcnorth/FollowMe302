@@ -44,7 +44,8 @@ namespace FollowMe302
 
             SqlDataReader rdr = null;
             SqlDataReader rdrDD = null;
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [userName] = '" + clientUserName + "'", con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [followMeId] = '" + clientFollowId + "'", con);
+            SqlCommand cmd2 = new SqlCommand("SELECT * FROM [_User] WHERE [followMeId] = '" + clientFollowId + "'", con);
             SqlCommand cmdDD = new SqlCommand("SELECT companyName FROM _Company", con);
 
             //checks user exists
@@ -71,13 +72,20 @@ namespace FollowMe302
                     txtSendSuburb.Text = (string)rdr["suburb"];
                     txtSendState.Text = (string)rdr["stat"];
                     txtSendCountry.Text = (string)rdr["country"];
-                    txtSendPostcode.Text = (string)rdr["postcode"];
-                    txtSendEmail.Text = (string)rdr["email"];
+                    txtSendPostcode.Text = (string)rdr["postcode"];                    
                     txtSendFirstName.Text = (string)rdr["firstName"];
                     txtSendLastName.Text = (string)rdr["lastName"];
                     txtSendFollowId.Text = clientFollowId;
 
 
+                }
+                con.Close();
+
+                con.Open();
+                rdr = cmd2.ExecuteReader();
+                while (rdr.Read())
+                {
+                    txtSendEmail.Text = (string)rdr["email"];
                 }
 
             }
@@ -95,7 +103,11 @@ namespace FollowMe302
                 txtSendFirstName.Text = "";
                 txtSendLastName.Text = "";
                 txtSendFollowId.Text = clientFollowId;
-                lblSendStatus.Text = "Please add your details.";
+                //lblSendStatus.Text = "Please add your details.";
+                lblmodeltitle2.Text = "ERROR";
+                lblmodelbody2.Text = "Please add your details";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "theModal", "$('#theModal').modal();", true);
+                theupModal.Update();
             }
 
             con.Close();
@@ -206,6 +218,12 @@ namespace FollowMe302
         {
             ddlSendPro.Items.Clear();
             Response.Redirect("~/SendProfile.aspx");
+        }
+
+        protected void btn2Close_Click(object sender, EventArgs e)
+        {
+            ddlSendPro.Items.Clear();
+            Response.Redirect("~/EditProfile.aspx");
         }
     }
 }
