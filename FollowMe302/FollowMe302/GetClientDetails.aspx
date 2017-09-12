@@ -27,8 +27,19 @@
                <a href="Login.aspx" role="button" id="btnLogout" class="btn btn-lg btn-block fBtn">Log Out</a> 
            </div>
            <div id="mainContent" class="col-sm-10">
-               <div id="top-header">
-                   <asp:Label ID="lblSession" runat="server" Text="">Hello</asp:Label>
+               <div class="row">
+                   <div id="top-header">
+                       <div class="col-sm-3">
+                           <asp:Label ID="lblSession" runat="server" Text="">Hello</asp:Label>
+                       </div>
+                       <div class="col-sm-3">
+                           <a href="BusTermsConditions.aspx" id="fContentLeft">Terms & Conditions</a>
+                           <a href="BusContactUs.aspx" id="fContentRight">Contact us</a>
+                       </div>
+                       <div class="col-sm-6">
+                       
+                       </div>
+                   </div>
                </div>
                <hr />
                <div class="panel panel-default">

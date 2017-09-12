@@ -82,7 +82,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BusContactUs.aspx" />
     <Content Include="BusDashboard.aspx" />
+    <Content Include="BusTermsConditions.aspx" />
     <Content Include="EditCompanyDetails.aspx" />
     <Content Include="GetClientDetails.aspx" />
     <Content Include="packages.config" />
@@ -119,12 +121,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusContactUs.aspx.cs">
+      <DependentUpon>BusContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusContactUs.aspx.designer.cs">
+      <DependentUpon>BusContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusDashboard.aspx.cs">
       <DependentUpon>BusDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BusDashboard.aspx.designer.cs">
       <DependentUpon>BusDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusTermsConditions.aspx.cs">
+      <DependentUpon>BusTermsConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusTermsConditions.aspx.designer.cs">
+      <DependentUpon>BusTermsConditions.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClientDashboard.aspx.cs">
       <DependentUpon>ClientDashboard.aspx</DependentUpon>

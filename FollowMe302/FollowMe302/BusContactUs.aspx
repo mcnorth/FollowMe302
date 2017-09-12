@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditCompanyDetails.aspx.cs" Inherits="FollowMe302.EditCompanyDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BusContactUs.aspx.cs" Inherits="FollowMe302.BusContactUs" %>
 
 <!DOCTYPE html>
 
@@ -6,9 +6,8 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    <script src="scripts/javaScript.js"></script>
-    <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/jquery-3.2.1.min.js"></script>
     
     <title></title>
 </head>
@@ -19,12 +18,15 @@
                <img src="images/white-logo.png" class="img-responsive center" id="front-logo-white" />
                <hr />
                <a href="BusDashboard.aspx" role="button" id="btnBusDashboard" class="btn btn-lg btn-block fBtn">Dashboard</a>
-               <br />
-               <a href="EditCompanyDetails.aspx" role="button" id="btnEditCompanyDetails" class="btn btn-lg btn-block active fBtn">Edit Company Details</a> 
+               <br />               
+               <a href="EditCompanyDetails.aspx" role="button" id="btnEditCompanyDetails" class="btn btn-lg btn-block fBtn">Edit Company Details</a> 
                <br />
                <a href="ViewCompanyDetails.aspx" role="button" id="btnViewCompanyDetails" class="btn btn-lg btn-block fBtn">View Company Details</a> 
                <br />
                <a href="Login.aspx" role="button" id="btnLogout" class="btn btn-lg btn-block fBtn">Log Out</a> 
+               <div id="footer">
+                   
+               </div>
            </div>
            <div id="mainContent" class="col-sm-10">
                <div class="row">
@@ -41,57 +43,55 @@
                        </div>
                    </div>
                </div>
+               
                <hr />
                <div class="panel panel-default">
                    <div class="panel-heading">
                        <p id="pHeading">Edit Company Details</p>
-                       <p id="pSubHeading">Add/Update your company's details.</p>
+                       <p id="pSubHeading">We are happy to answer any questions. Just send us a message in the form below.</p>
                    </div>
+
                    <div class="panel-body">
                        <form id="editForm" runat="server">
                            <div class="row">
-                               <div class="col-md-6">
+                               <div class="col-md-12">
                                    <div class="form-group">
-                                       <label for="txtEditRepName">Representative Name</label>
-                                       <asp:TextBox ID="txtEditRepName" runat="server" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtContactName">Your Name (required)</label>
+                                       <asp:TextBox ID="txtContactName" runat="server" CssClass="form-control"></asp:TextBox>                                   
                                    </div>
-                               </div>
-                               <div class="col-md-6">
+                               </div>                              
+                           </div>
+                           
+                           <div class="row">
+                               <div class="col-md-12">
                                    <div class="form-group">
-                                       <label for="txtEditPhoneNumber">Phone Number</label>
-                                       <asp:TextBox ID="txtEditPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>                                 
+                                       <label for="txtContactEmail">Your Email (required)</label>
+                                       <asp:TextBox ID="txtContactEmail" runat="server" CssClass="form-control"></asp:TextBox>                                 
+                                   </div>
+                               </div> 
+                           </div>
+
+                           <div class="row">
+                               <div class="col-md-12">
+                                   <div class="form-group">
+                                       <label for="txtContactSub">Subject</label>
+                                       <asp:TextBox ID="txtContactSub" runat="server" CssClass="form-control"></asp:TextBox>                                 
                                    </div>
                                </div> 
                            </div>
                            
                            <div class="row">
-                               <div class="col-md-6">
+                               <div class="col-md-12">
                                    <div class="form-group">
-                                       <label for="txtEditAddress">Address</label>
-                                       <asp:TextBox ID="txtEditAddress" runat="server" CssClass="form-control"></asp:TextBox>                                   
+                                       <label for="txtContactMsg">Your Message</label>
+                                       <asp:TextBox ID="txtContactMsg" runat="server" TextMode="MultiLine" Rows="5" CssClass="form-control"></asp:TextBox>                                 
                                    </div>
-                               </div>
-                               
-                               <div class="col-md-6">
-                                   <div class="form-group">
-                                       <label for="txtEditSuburb">Suburb</label>
-                                       <asp:TextBox ID="txtEditSuburb" runat="server" CssClass="form-control"></asp:TextBox> 
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="row">
-                               <div class="col-md-6">
-                                   <div class="form-group">
-                                       <label for="txtEditPostcode">Postcode</label>
-                                       <asp:TextBox ID="txtEditPostcode" runat="server" CssClass="form-control"></asp:TextBox>                                   
-                                   </div>
-                               </div>                                                              
-                           </div>                           
+                               </div> 
+                           </div>  
 
                            <div class="row">
                                <div class="col-md-12">
-                                   <asp:Button ID="btnEditCoDetails" runat="server" Text="Add/Update Details" OnClick="btnEditCoDetails_Click" CssClass="btn pull-right fBtn" />
+                                   <asp:Button ID="btnContactSend" runat="server" Text="Send" OnClick="btnContactSend_Click" CssClass="btn pull-right fBtn" />
                                </div>                               
                            </div>
 

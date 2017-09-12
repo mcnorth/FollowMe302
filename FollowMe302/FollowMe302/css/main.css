@@ -86,6 +86,7 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     padding: 25px;
     height: 100vh;
+    
 }
 
 #top-header 
@@ -126,4 +127,21 @@ body {
 #front-logo-white {
     display: block;
     margin: auto;
+}
+
+#footer
+{
+    position: fixed;
+    bottom: 0;
+    
+}
+
+#fContentRight
+{
+    color: white;
+}
+
+#fContentLeft {
+    color: white;
+    margin-right: 30px;
 }
