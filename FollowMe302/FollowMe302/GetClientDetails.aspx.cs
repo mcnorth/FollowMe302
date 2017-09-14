@@ -39,6 +39,7 @@ namespace FollowMe302
 
             SqlDataReader rdr = null;
             SqlCommand cmd = new SqlCommand("SELECT * FROM [_UserDetails] WHERE [followMeId] = '" + viewId + "'", con);
+            SqlCommand cmd2 = new SqlCommand("SELECT * FROM [_User] WHERE [followMeId] = '" + viewId + "'", con);
 
             //opens connection reads the database as per the query
             //counts how many rows and adds to the variable datacount
@@ -67,9 +68,18 @@ namespace FollowMe302
                     txtGetCountry.Text = (string)rdr["country"];
                     txtGetPostcode.Text = (string)rdr["postcode"];
                     txtGetFollowId.Text = Convert.ToString(rdr["followMeId"]);
-                    txtGetEmail.Text = (string)rdr["email"];
+                    
 
                 }
+                con.Close();
+
+                con.Open();
+                rdr = cmd2.ExecuteReader();
+                while (rdr.Read())
+                {
+                    txtGetEmail.Text = (string)rdr["email"];
+                }
+                con.Close();
 
             }
 
