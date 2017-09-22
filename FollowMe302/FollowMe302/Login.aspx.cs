@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using FollowMe302.scripts;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace FollowMe302
 {
@@ -34,6 +35,12 @@ namespace FollowMe302
                 member.UserName = txtuserNameLogin.Text;
                 member.Password = txtpwdLogin.Text;
                 string followID = "";
+                string hashedPasswordFromDatabase = "";
+                byte[] hashedPasswordFromDatabaseBytesArray;
+                byte[] hashedPasswordUserInputBytesArray;
+
+
+
 
                 if (rdPersonal.Checked == true)
                 {
@@ -43,7 +50,7 @@ namespace FollowMe302
 
                     SqlDataReader rdr = null;
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM [_User] WHERE [userName] = '" + member.UserName + "' AND [password] = '" + member.Password + "'", con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM [_User] WHERE [userName] = '" + member.UserName + "'", con);
 
 
                     con.Open();
@@ -54,22 +61,50 @@ namespace FollowMe302
                     {
                         dataCount++;
                         followID = rdr["followMeId"].ToString();
+                        hashedPasswordFromDatabase = rdr["password"].ToString();
+
+
+
                     }
 
                     //checks for user in the database
                     //adds a session if the user exists and redirects to userPage
                     if (dataCount > 0)
                     {
-                        Session["name"] = member.UserName;
-                        Session["fmID"] = followID;
-                        Response.Redirect("~/ClientDashboard.aspx");
-                        Session.RemoveAll();
+                        //turn the database password into bytes
+                        hashedPasswordFromDatabaseBytesArray = Convert.FromBase64String(hashedPasswordFromDatabase);
+
+                        hashedPasswordUserInputBytesArray = GetHashedPassword(member.Password, hashedPasswordFromDatabaseBytesArray);
+
+                       
+                        //loop to compare byte arrays
+                        int ok = 1;
+
+                        for(int i = 0; i < 20; i++)
+                            if (hashedPasswordFromDatabaseBytesArray[i + 16] != hashedPasswordUserInputBytesArray[i])
+                                ok = 0;
+
+                        if(ok == 1)
+                        {
+                            Session["name"] = member.UserName;
+                            Session["fmID"] = followID;
+                            Response.Redirect("~/ClientDashboard.aspx");
+                            Session.RemoveAll();
+                        }
+                        else
+                        {
+                            lblModalTitle.Text = "ERROR!";
+                            lblModalBody.Text = "Incorrect username or password! Try again";
+                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                            upModal.Update();
+                        }
+                       
                     }
                     else
                     {
                         //lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
                         lblModalTitle.Text = "ERROR!";
-                        lblModalBody.Text = "Details incorrect or user does not exist. Try again";
+                        lblModalBody.Text = "Incorrect username or password! Try again";
                         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                         upModal.Update();
                     }
@@ -105,10 +140,34 @@ namespace FollowMe302
                     //adds a session if the user exists and redirects to userPage
                     if (dataCount > 0)
                     {
-                        Session["name"] = member.UserName;
-                        Session["fmID"] = followID;
-                        Response.Redirect("~/BusDashboard.aspx");
-                        Session.RemoveAll();
+                        //turn the database password into bytes
+                        hashedPasswordFromDatabaseBytesArray = Convert.FromBase64String(hashedPasswordFromDatabase);
+
+                        hashedPasswordUserInputBytesArray = GetHashedPassword(member.Password, hashedPasswordFromDatabaseBytesArray);
+
+
+                        //loop to compare byte arrays
+                        int ok = 1;
+
+                        for (int i = 0; i < 20; i++)
+                            if (hashedPasswordFromDatabaseBytesArray[i + 16] != hashedPasswordUserInputBytesArray[i])
+                                ok = 0;
+
+                        if (ok == 1)
+                        {
+                            Session["name"] = member.UserName;
+                            Session["fmID"] = followID;
+                            Response.Redirect("~/BusDashboard.aspx");
+                            Session.RemoveAll();
+                        }
+                        else
+                        {
+                            lblModalTitle.Text = "ERROR!";
+                            lblModalBody.Text = "Incorrect username or password! Try again";
+                            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                            upModal.Update();
+                        }
+
                     }
                     else
                     {
@@ -143,6 +202,24 @@ namespace FollowMe302
             }
         }
 
+        public byte[] GetHashedPassword(string password, byte[] dbPass)
+        {
+            //remove salt from dbPass so we have the same salt value
+            byte[] dbSalt = new byte[16];
+            Array.Copy(dbPass, 0, dbSalt, 0, 16);
+           
+            //salt value from dbPass and password using PBKDF2
+            var pbkdf2 = new Rfc2898DeriveBytes(password, dbSalt, 10000);
+
+            //create byte array for hash, place the string in the byte array. GetBytes does this.
+            // 20 is the length of the array in bytes
+            byte[] hashPasswordUserInputMinusSalt = pbkdf2.GetBytes(20);
+                        
+            return hashPasswordUserInputMinusSalt;
+        }
+
         
+
+
     }
 }
