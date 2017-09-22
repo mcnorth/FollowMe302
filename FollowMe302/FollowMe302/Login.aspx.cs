@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FollowMe302.scripts;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace FollowMe302
 {
@@ -16,110 +17,129 @@ namespace FollowMe302
 
         }
 
+        
+
         /// <summary>
         /// btnLoginPage_Click is an event triggered from the login button
         /// This is where the app gets the users input and checks against the database
         /// If a record is found it will load the page that was checked via the radio button
         /// </summary> 
         protected void btnLoginPage_Click(object sender, EventArgs e)
-        {            
-            MemberEntity member = new MemberEntity();
-            member.UserName = txtuserNameLogin.Text;
-            member.Password = txtpwdLogin.Text;
-            string followID = "";
-            
-            if (rdPersonal.Checked == true)
+        {
+           
+
+            if (txtuserNameLogin.Text != string.Empty || txtpwdLogin.Text != string.Empty)
             {
-                SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
+                MemberEntity member = new MemberEntity();
+                member.UserName = txtuserNameLogin.Text;
+                member.Password = txtpwdLogin.Text;
+                string followID = "";
 
-                //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|FollowMeDatabase.mdf; Integrated Security=True");
-
-                SqlDataReader rdr = null;
-
-                SqlCommand cmd = new SqlCommand("SELECT * FROM [_User] WHERE [userName] = '" + member.UserName + "' AND [password] = '" + member.Password + "'", con);
-                
-
-                con.Open();
-
-                rdr = cmd.ExecuteReader();
-                int dataCount = 0;
-                while (rdr.Read())
+                if (rdPersonal.Checked == true)
                 {
-                    dataCount++;
-                    followID = rdr["followMeId"].ToString();
+                    SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
+
+                    //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|FollowMeDatabase.mdf; Integrated Security=True");
+
+                    SqlDataReader rdr = null;
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM [_User] WHERE [userName] = '" + member.UserName + "' AND [password] = '" + member.Password + "'", con);
+
+
+                    con.Open();
+
+                    rdr = cmd.ExecuteReader();
+                    int dataCount = 0;
+                    while (rdr.Read())
+                    {
+                        dataCount++;
+                        followID = rdr["followMeId"].ToString();
+                    }
+
+                    //checks for user in the database
+                    //adds a session if the user exists and redirects to userPage
+                    if (dataCount > 0)
+                    {
+                        Session["name"] = member.UserName;
+                        Session["fmID"] = followID;
+                        Response.Redirect("~/ClientDashboard.aspx");
+                        Session.RemoveAll();
+                    }
+                    else
+                    {
+                        //lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
+                        lblModalTitle.Text = "ERROR!";
+                        lblModalBody.Text = "Details incorrect or user does not exist. Try again";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                        upModal.Update();
+                    }
+
+                    con.Close();
+
+
                 }
 
-                //checks for user in the database
-                //adds a session if the user exists and redirects to userPage
-                if (dataCount > 0)
+
+                if (rdBusiness.Checked == true)
                 {
-                    Session["name"] = member.UserName;
-                    Session["fmID"] = followID;
-                    Response.Redirect("~/ClientDashboard.aspx");
-                    Session.RemoveAll();
+                    SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
+
+                    //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|FollowMeDatabase.mdf; Integrated Security=True");
+
+                    SqlDataReader rdr = null;
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM [_Company] WHERE [companyName] = '" + member.UserName + "' AND [password] = '" + member.Password + "'", con);
+
+                    con.Open();
+
+                    rdr = cmd.ExecuteReader();
+                    int dataCount = 0;
+
+                    while (rdr.Read())
+                    {
+                        dataCount++;
+                        followID = rdr["companyId"].ToString();
+                    }
+
+                    //checks for user in the database
+                    //adds a session if the user exists and redirects to userPage
+                    if (dataCount > 0)
+                    {
+                        Session["name"] = member.UserName;
+                        Session["fmID"] = followID;
+                        Response.Redirect("~/BusDashboard.aspx");
+                        Session.RemoveAll();
+                    }
+                    else
+                    {
+                        //lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
+                        lblModalTitle.Text = "ERROR!";
+                        lblModalBody.Text = "Details incorrect or user does not exist. Try again";
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                        upModal.Update();
+                    }
+
+                    con.Close();
                 }
-                else
+
+                if (rdPersonal.Checked == false && rdBusiness.Checked == false)
                 {
-                    //lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
+                    //lblLogStatus.Text = "Please check a user type.";
                     lblModalTitle.Text = "ERROR!";
-                    lblModalBody.Text = "Details incorrect or user does not exist. Try again";
+                    lblModalBody.Text = "Please check a user type.";
                     ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                     upModal.Update();
+
                 }
 
-                con.Close();
             }
-
-            if (rdBusiness.Checked == true)
+            else
             {
-                SqlConnection con = new SqlConnection(@"Data Source=182.50.133.109; Database=FollowMe; Integrated Security=False; User ID=kellie; Password=rQp45a1^; Connect Timeout=15; Encrypt=False; Packet Size=4096");
-
-                //SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB; AttachDbFilename=|DataDirectory|FollowMeDatabase.mdf; Integrated Security=True");
-
-                SqlDataReader rdr = null;
-
-                SqlCommand cmd = new SqlCommand("SELECT * FROM [_Company] WHERE [companyName] = '" + member.UserName + "' AND [password] = '" + member.Password + "'", con);
-
-                con.Open();
-
-                rdr = cmd.ExecuteReader();
-                int dataCount = 0;
-
-                while (rdr.Read())
-                {
-                    dataCount++;
-                    followID = rdr["companyId"].ToString();
-                }
-
-                //checks for user in the database
-                //adds a session if the user exists and redirects to userPage
-                if (dataCount > 0)
-                {
-                    Session["name"] = member.UserName;
-                    Session["fmID"] = followID;
-                    Response.Redirect("~/BusDashboard.aspx");
-                    Session.RemoveAll();
-                }
-                else
-                {
-                    //lblLogStatus.Text = "Details incorrect or user does not exist. Try again";
-                    lblModalTitle.Text = "ERROR!";
-                    lblModalBody.Text = "Details incorrect or user does not exist. Try again";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
-                    upModal.Update();
-                }
-
-                con.Close();
-            }
-
-            if (rdPersonal.Checked == false && rdBusiness.Checked == false)
-            {
-                //lblLogStatus.Text = "Please check a user type.";
+                //lblLogStatus.Text = "Password or username cannot be empty";
                 lblModalTitle.Text = "ERROR!";
-                lblModalBody.Text = "Please check a user type.";
+                lblModalBody.Text = "Password or username cannot be empty.";
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
                 upModal.Update();
-
             }
         }
 
