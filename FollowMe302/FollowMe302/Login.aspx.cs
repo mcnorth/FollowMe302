@@ -123,7 +123,7 @@ namespace FollowMe302
 
                     SqlDataReader rdr = null;
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM [_Company] WHERE [companyName] = '" + member.UserName + "' AND [password] = '" + member.Password + "'", con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM [_Company] WHERE [companyName] = '" + member.UserName + "'", con);
 
                     con.Open();
 
@@ -134,6 +134,7 @@ namespace FollowMe302
                     {
                         dataCount++;
                         followID = rdr["companyId"].ToString();
+                        hashedPasswordFromDatabase = rdr["password"].ToString();
                     }
 
                     //checks for user in the database
